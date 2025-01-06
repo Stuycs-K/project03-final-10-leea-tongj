@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "headers.h"
 
 // arguments: name of tab and dimensions for new table
 // returns void 

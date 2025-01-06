@@ -13,10 +13,13 @@ This document must be updated daily by EACH group member.
 ### 2024-01-03 - Brief description
 Expanded description including how much time was spent on task.
 
-## Player 2
+## Janet Tong
 
-### 2024-01-02 - Brief description
-Expanded description including how much time was spent on task.
+### 2024-01-06 - Skeleton Files + Function Design
+- Created git branch (1 minute) 
+- Added cell.c and tab.c files (3 minutes)
+- Designed functions and documentation comments for cell.c and tab.c (20 minutes)
+- Updated header file (5 minutes)
 
 ### 2024-01-03 - Brief description
 Expanded description including how much time was spent on task.

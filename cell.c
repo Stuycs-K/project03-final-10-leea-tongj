@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "headers.h"
 
 // arguments: row, col of cell and input for cell
 // returns void 
