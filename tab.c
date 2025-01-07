@@ -2,9 +2,9 @@
 
 // arguments: name and dimensions of new table
 // returns void 
-// returns 2d array for table data
-char ** create_table(char* name, int rows, int cols){
-
+// returns table struct containing table array, name, rows, and cols 
+struct table create_table(char* name, int rows, int cols){
+    struct table *tbl = malloc(sizeof(struct table)); 
 }
 
 // no arguments 
