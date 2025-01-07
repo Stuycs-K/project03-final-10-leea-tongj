@@ -12,8 +12,9 @@ This document must be updated daily by EACH group member.
 
 ### 2024-01-07 - Planning + starting csv.c
 - Discussed creating structs for tables and cells (10 minutes)
+- Discussed maximum number of columns for tables and maximum character length for entries (7 minutes)
 - Discussed only exporting the spreadsheet to a file if the user asks for it (10 minutes)
-- Started writing read_csv method to convert csv 
+- Started writing read_csv method to convert csv (10 minutes)
 
 ## Janet Tong
 
