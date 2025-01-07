@@ -1,9 +1,9 @@
 #include "headers.h"
 
-// arguments: row, col of cell and input for cell
+// arguments: table: 2d array of structs for table data; int row, col of cell; string input for cell
 // returns void 
 // udpates specified cell with input
-void update_cell(int row, int col, char * input){
+void update_cell(char ** table, int row, int col, char * input){
 
 }
 

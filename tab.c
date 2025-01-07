@@ -1,36 +1,36 @@
 #include "headers.h"
 
-// arguments: name of tab and dimensions for new table
+// arguments: name and dimensions of new table
 // returns void 
-// creates a new table/tab 
-void create_tab(char* name, int rows, int cols){
+// returns 2d array for table data
+char ** create_table(char* name, int rows, int cols){
 
 }
 
 // no arguments 
 // returns void 
 // displays contents of table in spreadsheet format 
-void display_tab(){
+void display_table(){
 
 }
 
 // no arguments 
 // returns void 
 // displays all available tables with their names and dimensions
-void tab_list(){
+void table_list(){
 
 }
 
 // arguments: name of table to access
 // returns void
-// display contents of accessed tab, prompt user to read/write
-void access_tab(char* name){
+// display contents of accessed table, prompt user to read/write
+void access_table(char* name){
 
 }
 
 // arguments: name of table to delete 
 // returns void 
 // deletes specified table and displays updated tab list
-void delete_tab(char* name){
+void delete_table(char* name){
 
 }
