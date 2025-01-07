@@ -10,8 +10,10 @@ This document must be updated daily by EACH group member.
 - Created git branch (1 minute)
 - Added skeleton files (7 minutes)
 
-### 2024-01-03 - Brief description
-Expanded description including how much time was spent on task.
+### 2024-01-07 - Planning + starting csv.c
+- Discussed creating structs for tables and cells (10 minutes)
+- Discussed only exporting the spreadsheet to a file if the user asks for it (10 minutes)
+- Started writing read_csv method to convert csv 
 
 ## Janet Tong
 
