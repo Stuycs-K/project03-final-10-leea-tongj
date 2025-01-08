@@ -24,3 +24,6 @@ void display_tab();
 void tab_list();
 void access_tab(char* name);
 void delete_tab(char* name); 
+
+//csv
+void read_csv(char *PATH);
