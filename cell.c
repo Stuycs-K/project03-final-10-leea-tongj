@@ -4,7 +4,9 @@
 // returns void 
 // udpates specified cell with input
 void update_cell(struct table * tbl, int row, int col, char * input){
-    tbl->input[row][col] = input; 
+    (tbl->input[row][col])->input = input; 
+
+
 }
 
 // arguments: row, col of cell
