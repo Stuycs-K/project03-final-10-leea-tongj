@@ -10,8 +10,10 @@ void update_cell(struct table * tbl, int row, int col, char * input){
 // arguments: row, col of cell
 // returns the cleared input 
 // prompts user for row and col of cell to modify and clear the cell's input
-char * clear_cell(int row, int col){
-
+char * clear_cell(struct table * tbl, int row, int col){
+    char cleared_input[10] = tbl->input[row][col]; 
+    tbl->input[row][col] = NULL; 
+    return cleared_input; 
 }
 
 // no arguments

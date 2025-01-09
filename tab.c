@@ -13,8 +13,7 @@ struct table create_table(char* name, int rows, int cols){
 // no arguments 
 // returns void 
 // displays contents of table in spreadsheet format 
-void display_table(){
-
+void display_table(struct table * tbl){
 }
 
 // no arguments 
