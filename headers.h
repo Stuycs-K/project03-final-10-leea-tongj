@@ -10,13 +10,13 @@ struct table{
 };
 
 struct cell {
-    char input[20]; 
+    char input[20];  
     int row; 
     int col;
 };
 
 // cell/table edits
-void update_cell(struct table table, int row, int col, char * input);
+void update_cell(struct table * table, int row, int col, char * input);
 char * clear_cell(int row, int col);
 void add_row();
 void add_column();

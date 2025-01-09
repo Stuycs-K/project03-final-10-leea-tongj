@@ -4,7 +4,10 @@
 // returns void 
 // returns table struct containing table array, name, rows, and cols 
 struct table create_table(char* name, int rows, int cols){
-    struct table *tbl = malloc(sizeof(struct table)); 
+    struct table *tbl = (struct table*) malloc(sizeof(struct table)); 
+    strcpy(tbl->name, name); 
+    tbl->rows = rows; 
+    tbl->cols = cols; 
 }
 
 // no arguments 
