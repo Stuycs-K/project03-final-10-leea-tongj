@@ -41,8 +41,10 @@ void display_table(struct table * tbl){
 }
 
 void export_file(struct table *tbl){ 
-    char name[256] = sprintf("%s.txt", tbl->name); 
-    int w_file = open(name, O_WRONLY | O_TRUNC | O_CREAT, 0611);
+    char filename[256]; 
+    strcpy(filename, tbl->name);
+    strcat(filename, ".txt");
+    int w_file = open(filename, O_WRONLY | O_TRUNC | O_CREAT, 0611);
     if (w_file == -1){
         err();
         printf("w_file : %u\n", w_file);
@@ -54,20 +56,35 @@ void export_file(struct table *tbl){
     }
 }
 
-void read_file(char* name){
-    int r_file = open(name, O_RDONLY, 0);
-    if (r_file == -1){
-        err(); 
-        printf("r_file: %u\n", r_file); 
+// void read_file(char* name){
+//     int r_file = open(name, O_RDONLY, 0);
+//     if (r_file == -1){
+//         err(); 
+//         printf("r_file: %u\n", r_file); 
+//     }
+//     char buff[1000]; 
+// }
+
+
+//no arguments
+//returns pointer to array of struct tables 
+//initializies array of struct tables
+struct table ** init_table_list(){
+    struct table * tab[20];
+    for (int i = 0; i < 20; i++){
+        tab[i] = (struct table *)malloc(sizeof(struct table));
     }
-    char buff[1000]; 
+    return tab; 
 }
 
 // no arguments 
 // returns void 
 // displays all available tables with their names and dimensions
-void table_list(){
-
+void display_table_list(struct table ** lst){
+    for (int i = 0; lst[i]; i++){
+        printf("[%d]%s", i, lst[i]->name); 
+        printf("Dimensions: %d x %d", lst[i]->rows, lst[i]->cols);
+    }
 }
 
 // arguments: name of table to access
