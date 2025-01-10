@@ -10,8 +10,8 @@ struct table * create_table(char* name, int rows, int cols){
     tbl->cols = cols; 
     for (int i = 0; i < rows; i++){
         for (int j = 0; j < cols; j++){
-            struct cell * cll = (struct cell*) malloc(sizeof(struct cell)); 
-            tbl->input[i][j] = cll;
+            struct cell * cll = (struct cell *) malloc(sizeof(struct cell)); 
+            tbl->arr[i][j] = cll;
         }
     }
     return tbl; 
@@ -23,7 +23,7 @@ struct table * create_table(char* name, int rows, int cols){
 void display_table(struct table * tbl){
     for (int i = 0; i < tbl->rows; i++){
         for (int j = 0; j < tbl->cols; j++){
-            printf("|%s", tbl->input[i][j]); 
+            printf("|%s", tbl->arr[i][j]); 
             if (j == tbl->cols -1){
                 printf("|\n"); 
             }

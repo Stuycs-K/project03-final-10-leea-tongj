@@ -4,17 +4,18 @@
 // returns void 
 // udpates specified cell with input
 void update_cell(struct table * tbl, int row, int col, char * input){
-    (tbl->input[row][col])->input = input; 
-
-
+    strcpy(tbl->arr[row][col]->input, input); 
+    tbl->arr[row][col]->row = row; 
+    tbl->arr[row][col]->col = col; 
 }
 
 // arguments: row, col of cell
 // returns the cleared input 
 // prompts user for row and col of cell to modify and clear the cell's input
 char * clear_cell(struct table * tbl, int row, int col){
-    char cleared_input[10] = tbl->input[row][col]; 
-    tbl->input[row][col] = NULL; 
+    char cleared_input[10]; 
+    strcpy(cleared_input, tbl->arr[row][col]->input); 
+    strcpy(tbl->arr[row][col]->input, "0"); 
     return cleared_input; 
 }
 
