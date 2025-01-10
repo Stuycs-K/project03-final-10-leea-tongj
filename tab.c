@@ -26,7 +26,7 @@ struct table * create_table(char* name, int rows, int cols){
 void display_table(struct table * tbl){
     for (int i = 0; i < tbl->rows; i++){
         for (int j = 0; j < tbl->cols; j++){
-            printf("|%s", tbl->arr[i][j]); 
+            printf("|%s", tbl->arr[i][j]->input); 
             if (j == tbl->cols -1){
                 printf("|\n"); 
             }

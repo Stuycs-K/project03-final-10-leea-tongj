@@ -1,3 +1,6 @@
+#ifndef HEADERS_H
+#define HEADERS_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -28,3 +31,5 @@ void display_table(struct table * tbl);
 void table_list();
 void access_table(char* name);
 void delete_table(char* name); 
+
+#endif

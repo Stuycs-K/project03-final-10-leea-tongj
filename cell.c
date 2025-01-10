@@ -11,7 +11,7 @@ void update_cell(struct table * tbl, int row, int col, char * input){
 // returns the cleared input 
 // prompts user for row and col of cell to modify and clear the cell's input
 char * clear_cell(struct table * tbl, int row, int col){
-    char cleared_input[10]; 
+    char * cleared_input = malloc(10 * sizeof(char)); 
     strcpy(cleared_input, tbl->arr[row][col]->input); 
     strcpy(tbl->arr[row][col]->input, "0"); 
     return cleared_input; 
