@@ -30,8 +30,11 @@ void add_row();
 void add_column();
 
 // tab creation + display
+int err();
 struct table * create_table(char* name, int rows, int cols);
 void display_table(struct table * tbl);
+void export_file(struct table *tbl);
+void read_file(char* name);
 void table_list();
 void access_table(char* name);
 void delete_table(char* name); 

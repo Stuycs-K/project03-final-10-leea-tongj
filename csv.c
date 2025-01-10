@@ -1,6 +1,6 @@
 #include "headers.h"
 
-struct table read_csv(char *name, char *PATH) {
+struct table * read_csv(char *name, char *PATH) {
     char s[256];
     FILE *csv = fopen(PATH, "r");
     fgets(s, 255, csv);
@@ -15,5 +15,5 @@ struct table read_csv(char *name, char *PATH) {
         rows++;
     }
     // printf("rows: %d columns: %d\n", rows, cols);
-    return create_tab(name, rows, cols);
+    return create_table(name, rows, cols);
 }
