@@ -40,4 +40,6 @@ This document must be updated daily by EACH group member.
 - Modified create_table, update_call, and clear_cell to use struct cell (20 minutes)
 - Wrote makefile (5 minutes)
 - Tested completed methods in main (10 minutes) 
+- Wrote export_file (10 minutes) 
+- Began read_file (7 minutes)
 
