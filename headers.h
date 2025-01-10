@@ -3,8 +3,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include <string.h>
 #include <time.h>
+#include <sys/stat.h>
+#include <errno.h>
 
 struct table{
     char name[256]; 
@@ -31,5 +35,8 @@ void display_table(struct table * tbl);
 void table_list();
 void access_table(char* name);
 void delete_table(char* name); 
+
+//csv
+struct table read_csv(char *name, char *PATH);
 
 #endif
