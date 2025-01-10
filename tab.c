@@ -9,7 +9,7 @@ int err(){
 // arguments: name and dimensions of new table
 // returns void 
 // returns table struct containing table array, name, rows, and cols 
-struct table * create_table(char* name, int rows, int cols){
+struct table * create_table(struct table ** tbl_list, char* name, int rows, int cols){
     struct table *tbl = (struct table*) malloc(sizeof(struct table)); 
     strcpy(tbl->name, name); 
     tbl->rows = rows; 
@@ -90,8 +90,12 @@ void display_table_list(struct table ** lst){
 // arguments: name of table to access
 // returns void
 // display contents of accessed table, prompt user to read/write
-void access_table(char* name){
-
+void add_table(struct table ** tbl_list, struct table * tbl){
+    for (int i = 0; i < 20; i++){
+        if (!tbl_list[i]->name){
+            tbl_list[i] = tbl; 
+        }
+    }
 }
 
 // arguments: name of table to delete 
