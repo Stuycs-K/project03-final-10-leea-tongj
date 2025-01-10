@@ -11,6 +11,9 @@ struct table * create_table(char* name, int rows, int cols){
     for (int i = 0; i < rows; i++){
         for (int j = 0; j < cols; j++){
             struct cell * cll = (struct cell *) malloc(sizeof(struct cell)); 
+            cll->row = i; 
+            cll->col = j; 
+            strcpy(cll->input, "0"); 
             tbl->arr[i][j] = cll;
         }
     }
