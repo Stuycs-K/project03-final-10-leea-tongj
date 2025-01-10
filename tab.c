@@ -52,7 +52,15 @@ void export_file(struct table *tbl){
             write(w_file, tbl->arr[i][j]->input, sizeof(tbl->arr[i][j]->input));
         }
     }
+}
 
+void read_file(char* name){
+    int r_file = open(name, O_RDONLY, 0);
+    if (r_file == -1){
+        err(); 
+        printf("r_file: %u\n", r_file); 
+    }
+    char buff[1000]; 
 }
 
 // no arguments 
