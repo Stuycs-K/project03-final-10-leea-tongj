@@ -43,3 +43,8 @@ This document must be updated daily by EACH group member.
 - Wrote export_file (10 minutes) 
 - Began read_file (7 minutes)
 
+### 2025-01-10 - Began table list functions 
+- Wrote init_table_list (15 minutes)
+- Wrote display_table_list(5 minutes) 
+- Began writing add_table (10 minutes)
+- Testing and debugging in main (7 minutes) 
