@@ -10,7 +10,10 @@ int err(){
 //returns pointer to array of struct tables 
 //initializies array of struct tables
 struct table ** init_table_list(){
-    struct table * tbl_lst[20];
+    struct table** tbl_lst = malloc(20 * sizeof(struct table *));
+    for (int i = 0; i < 20; i++){
+        tbl_lst[i] = NULL;
+    }
     return tbl_lst; 
 }
 
@@ -25,15 +28,16 @@ void display_table_list(struct table ** tbl_lst){
 }
 
 // arguments: name of table to access
-// returns void
+// returns int, place in table 
 // display contents of accessed table, prompt user to read/write
-void add_table(struct table ** tbl_list, struct table * tbl){
+int add_table(struct table ** tbl_lst, struct table * tbl){
     for (int i = 0; i < 20; i++){
-        if (!tbl_list[i]){
-            tbl_list[i] = tbl; 
-            break; 
+        if (!tbl_lst[i]){
+            tbl_lst[i] = tbl; 
+            return i; 
         }
     }
+    return -1;
 }
 
 // arguments: name of table to delete 
@@ -60,7 +64,8 @@ struct table * create_table(struct table ** tbl_list, char* name, int rows, int 
             tbl->arr[i][j] = cll;
         }
     }
-    add_table(tbl_list, tbl); 
+    int place = add_table(tbl_list, tbl); 
+    printf("%d place in tbl_list", place);
     return tbl; 
 }
 
