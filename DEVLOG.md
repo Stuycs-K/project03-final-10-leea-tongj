@@ -32,5 +32,24 @@ This document must be updated daily by EACH group member.
 - Designed functions and documentation comments for cell.c and tab.c (20 minutes)
 - Updated header file (5 minutes)
 
-### 2025-01-03 - Brief description
-Expanded description including how much time was spent on task.
+### 2025-01-07 - Planning + create_table & udpate_cell
+- Discussed using structs for table list and cells (10 minutes)
+- Discussed maximum columns for tables (7 minutes) 
+- Discussed using files with a new method "export" when prompted instead (10 minutes) 
+- Began create_table(5 minutes)
+
+### 2025-01-09 - Completed create_table, display_table, update_cell, and clear_cell
+- Wrote create_table (15 minutes)
+- Wrote display_table (5 minutes)
+- Began update_cell and clear_cell (15 minutes)
+- Modified create_table, update_call, and clear_cell to use struct cell (20 minutes)
+- Wrote makefile (5 minutes)
+- Tested completed methods in main (10 minutes) 
+- Wrote export_file (10 minutes) 
+- Began read_file (7 minutes)
+
+### 2025-01-10 - Began table list functions 
+- Wrote init_table_list (15 minutes)
+- Wrote display_table_list(5 minutes) 
+- Began writing add_table (10 minutes)
+- Testing and debugging in main (7 minutes) 

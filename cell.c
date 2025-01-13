@@ -1,17 +1,20 @@
 #include "headers.h"
 
-// arguments: table: 2d array of structs for table data; int row, col of cell; string input for cell
+// arguments: struct table of table info; int row, col of cell; string input for cell
 // returns void 
 // udpates specified cell with input
-void update_cell(char ** table, int row, int col, char * input){
-
+void update_cell(struct table * tbl, int row, int col, char * input){
+    strcpy(tbl->arr[row][col]->input, input);  
 }
 
 // arguments: row, col of cell
 // returns the cleared input 
 // prompts user for row and col of cell to modify and clear the cell's input
-char * clear_cell(int row, int col){
-
+char * clear_cell(struct table * tbl, int row, int col){
+    char * cleared_input = malloc(10 * sizeof(char)); 
+    strcpy(cleared_input, tbl->arr[row][col]->input); 
+    strcpy(tbl->arr[row][col]->input, "0"); 
+    return cleared_input; 
 }
 
 // no arguments
