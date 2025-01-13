@@ -31,7 +31,7 @@ void add_column();
 
 // tab creation + display
 int err();
-struct table * create_table(char* name, int rows, int cols);
+struct table * create_table(struct table ** tbl_list, char* name, int rows, int cols);
 void display_table(struct table * tbl);
 void export_file(struct table *tbl);
 void read_file(char* name);
