@@ -36,15 +36,24 @@ int add_table(struct table ** tbl_lst, struct table * tbl){
             tbl_lst[i] = tbl; 
             return i; 
         }
+        if (i == 19){
+            printf("Met max size of table_list!");
+        }
     }
     return -1;
 }
 
-// arguments: name of table to delete 
+// arguments: name of table to delete, asks if user would like to export file 
 // returns void 
 // deletes specified table and displays updated tab list
-void delete_table(char* name){
-
+void delete_table(struct table ** tbl_lst, char* name, int export){
+    for (int i = 0; i < 20; i++){
+        if (strcmp(name, tbl_lst[i]->name) == 0){
+            if (export){
+                export_file(tbl_lst[i]);
+            }
+        }
+    }
 }
 
 // arguments: name and dimensions of new table
