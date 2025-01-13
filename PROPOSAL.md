@@ -54,5 +54,5 @@ Jan 8: Inserting + editing cells + Convert csv to table
 Jan 11: Tabs with different files/spreadsheets
 Jan 13: List of tables, selecting a specific table to access/remove it 
 Jan 15: Signals + Adding rows/columns (Basic working version) 
-Jan 19: Moving cursor with arrow keys 
-Jan 20: Record video
+Jan 18: Moving cursor with arrow keys 
+Jan 18: Record video

@@ -6,10 +6,60 @@ int err(){
     exit(1);
 } 
 
+//no arguments
+//returns pointer to array of struct tables 
+//initializies array of struct tables
+struct table ** init_table_list(){
+    struct table** tbl_lst = malloc(20 * sizeof(struct table *));
+    for (int i = 0; i < 20; i++){
+        tbl_lst[i] = NULL;
+    }
+    return tbl_lst; 
+}
+
+// no arguments 
+// returns void 
+// displays all available tables with their names and dimensions
+void display_table_list(struct table ** tbl_lst){
+    for (int i = 0; tbl_lst[i]; i++){
+        printf("[%d]%s\n", i, tbl_lst[i]->name); 
+        printf("Dimensions: %d x %d\n", tbl_lst[i]->rows, tbl_lst[i]->cols);
+    }
+}
+
+// arguments: name of table to access
+// returns int, place in table 
+// display contents of accessed table, prompt user to read/write
+int add_table(struct table ** tbl_lst, struct table * tbl){
+    for (int i = 0; i < 20; i++){
+        if (!tbl_lst[i]){
+            tbl_lst[i] = tbl; 
+            return i; 
+        }
+        if (i == 19){
+            printf("Met max size of table_list!");
+        }
+    }
+    return -1;
+}
+
+// arguments: name of table to delete, asks if user would like to export file 
+// returns void 
+// deletes specified table and displays updated tab list
+void delete_table(struct table ** tbl_lst, char* name, int export){
+    for (int i = 0; i < 20; i++){
+        if (strcmp(name, tbl_lst[i]->name) == 0){
+            if (export){
+                export_file(tbl_lst[i]);
+            }
+        }
+    }
+}
+
 // arguments: name and dimensions of new table
 // returns void 
 // returns table struct containing table array, name, rows, and cols 
-struct table * create_table(char* name, int rows, int cols){
+struct table * create_table(struct table ** tbl_list, char* name, int rows, int cols){
     struct table *tbl = (struct table*) malloc(sizeof(struct table)); 
     strcpy(tbl->name, name); 
     tbl->rows = rows; 
@@ -23,6 +73,8 @@ struct table * create_table(char* name, int rows, int cols){
             tbl->arr[i][j] = cll;
         }
     }
+    int place = add_table(tbl_list, tbl); 
+    printf("%d place in tbl_list", place);
     return tbl; 
 }
 
@@ -82,4 +134,21 @@ void access_table(char* name){
 // deletes specified table and displays updated tab list
 void delete_table(char* name){
 
+// arguments: pointer to table struct 
+// returns void 
+// exports table info to a file
+void export_file(struct table *tbl){ 
+    char filename[256]; 
+    strcpy(filename, tbl->name);
+    strcat(filename, ".txt");
+    int w_file = open(filename, O_WRONLY | O_TRUNC | O_CREAT, 0611);
+    if (w_file == -1){
+        err();
+        printf("w_file : %u\n", w_file);
+    }
+    for (int i = 0; i < tbl->rows; i++){
+        for (int j = 0; j < tbl->cols; j++){
+            write(w_file, tbl->arr[i][j]->input, sizeof(tbl->arr[i][j]->input));
+        }
+    }
 }

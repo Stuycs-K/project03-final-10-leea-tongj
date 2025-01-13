@@ -15,5 +15,6 @@ struct table * read_csv(char *name, char *PATH) {
         rows++;
     }
     // printf("rows: %d columns: %d\n", rows, cols);
-    return create_table(name, rows, cols);
+    struct table ** tbl_list = init_table_list();
+    return create_table(tbl_list, name, rows, cols);
 }
