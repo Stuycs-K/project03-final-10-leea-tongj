@@ -1,5 +1,12 @@
 #include "headers.h"
 
+// arguments: struct table of table info; int row, col of cell
+// returns char pointer  
+// accesses the input of a cell
+char * select_cell(struct table *tbl, int row, int col){
+    return tbl->arr[row][col]->input;
+}
+
 // arguments: struct table of table info; int row, col of cell; string input for cell
 // returns void 
 // udpates specified cell with input

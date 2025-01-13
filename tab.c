@@ -10,17 +10,17 @@ int err(){
 //returns pointer to array of struct tables 
 //initializies array of struct tables
 struct table ** init_table_list(){
-    struct table * tab[20];
-    return tab; 
+    struct table * tbl_lst[20];
+    return tbl_lst; 
 }
 
 // no arguments 
 // returns void 
 // displays all available tables with their names and dimensions
-void display_table_list(struct table ** lst){
-    for (int i = 0; lst[i]; i++){
-        printf("[%d]%s", i, lst[i]->name); 
-        printf("Dimensions: %d x %d", lst[i]->rows, lst[i]->cols);
+void display_table_list(struct table ** tbl_lst){
+    for (int i = 0; tbl_lst[i]; i++){
+        printf("[%d]%s\n", i, tbl_lst[i]->name); 
+        printf("Dimensions: %d x %d\n", tbl_lst[i]->rows, tbl_lst[i]->cols);
     }
 }
 
@@ -31,6 +31,7 @@ void add_table(struct table ** tbl_list, struct table * tbl){
     for (int i = 0; i < 20; i++){
         if (!tbl_list[i]){
             tbl_list[i] = tbl; 
+            break; 
         }
     }
 }
