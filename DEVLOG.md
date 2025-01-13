@@ -16,8 +16,13 @@ This document must be updated daily by EACH group member.
 - Discussed only exporting the spreadsheet to a file if the user asks for it (10 minutes)
 - Started writing read_csv method to convert csv (10 minutes)
 
-### 2025-01-08 - work on csv.c
+### 2025-01-08 - Work on csv.c
 - finished read_csv method (30 minutes)
+
+### 2024-01-08 to 2024-01-12 - Excused absences due to travel
+
+### 2024-01-13 - 
+- started working on signal.c
 
 ## Janet Tong
 
