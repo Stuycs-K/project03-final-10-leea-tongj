@@ -40,6 +40,9 @@ void access_table(char* name);
 void delete_table(char* name); 
 
 //csv
-struct table read_csv(char *name, char *PATH);
+struct table * read_csv(char *name, char *PATH);
 
+//signal
+static void sighandler(int signo);
+void sig();
 #endif

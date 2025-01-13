@@ -40,19 +40,19 @@ void display_table(struct table * tbl){
     }
 }
 
-void export_file(struct table *tbl){ 
-    char name[256] = sprintf("%s.txt", tbl->name); 
-    int w_file = open(name, O_WRONLY | O_TRUNC | O_CREAT, 0611);
-    if (w_file == -1){
-        err();
-        printf("w_file : %u\n", w_file);
-    }
-    for (int i = 0; i < tbl->rows; i++){
-        for (int j = 0; j < tbl->cols; j++){
-            write(w_file, tbl->arr[i][j]->input, sizeof(tbl->arr[i][j]->input));
-        }
-    }
-}
+// void export_file(struct table *tbl){ 
+//     char name[256] = sprintf("%s.txt", tbl->name); 
+//     int w_file = open(name, O_WRONLY | O_TRUNC | O_CREAT, 0611);
+//     if (w_file == -1){
+//         err();
+//         printf("w_file : %u\n", w_file);
+//     }
+//     for (int i = 0; i < tbl->rows; i++){
+//         for (int j = 0; j < tbl->cols; j++){
+//             write(w_file, tbl->arr[i][j]->input, sizeof(tbl->arr[i][j]->input));
+//         }
+//     }
+// }
 
 void read_file(char* name){
     int r_file = open(name, O_RDONLY, 0);
