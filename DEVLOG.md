@@ -28,6 +28,12 @@ This document must be updated daily by EACH group member.
 - Updated tab.c based on changes (10 minutes)
 - Tested and fixed write_csv (20 minutes)
 
+### 2025-01-14 - 
+- Discussed how deletion of tables should work (10 minutes)
+- Improved formatting of display_table (10 minutes)
+- Created global variables (5 minutes)
+- Implemented clipboard for copying/pasting from/to cells (10 minutes)
+
 ## Janet Tong
 
 ### 2025-01-06 - Skeleton Files + Function Design
