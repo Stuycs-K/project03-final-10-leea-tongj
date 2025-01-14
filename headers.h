@@ -37,11 +37,12 @@ void export_file(struct table *tbl);
 void read_file(char* name);
 struct table ** init_table_list();
 void display_table_list(struct table ** lst);
-void add_table(char* name);
-void delete_table(struct table ** tbl_lst, char* name); 
+// void add_table(char* name);
+// void delete_table(struct table ** tbl_lst, char* name); 
 
 //csv
 struct table * read_csv(char *name, char *PATH);
+void write_csv(struct table *tbl);
 
 //signal
 static void sighandler(int signo);

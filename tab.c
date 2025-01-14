@@ -92,20 +92,6 @@ void display_table(struct table * tbl){
     }
 }
 
-// void export_file(struct table *tbl){ 
-//     char name[256] = sprintf("%s.txt", tbl->name); 
-//     int w_file = open(name, O_WRONLY | O_TRUNC | O_CREAT, 0611);
-//     if (w_file == -1){
-//         err();
-//         printf("w_file : %u\n", w_file);
-//     }
-//     for (int i = 0; i < tbl->rows; i++){
-//         for (int j = 0; j < tbl->cols; j++){
-//             write(w_file, tbl->arr[i][j]->input, sizeof(tbl->arr[i][j]->input));
-//         }
-//     }
-// }
-
 void read_file(char* name){
     int r_file = open(name, O_RDONLY, 0);
     if (r_file == -1){
@@ -125,13 +111,13 @@ void table_list(){
 // arguments: name of table to access
 // returns void
 // display contents of accessed table, prompt user to read/write
-void access_table(char* name){
+// void access_table(char* name){
 
-}
+// }
 
 // arguments: name of table to delete 
 // returns void 
 // deletes specified table and displays updated tab list
-void delete_table(char* name){
+// void delete_table(char* name){
 
-}
+// }
