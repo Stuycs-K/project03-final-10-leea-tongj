@@ -11,7 +11,8 @@ char * select_cell(struct table *tbl, int row, int col){
 // returns void 
 // udpates specified cell with input
 void update_cell(struct table * tbl, int row, int col, char * input){
-    strcpy(tbl->arr[row][col]->input, input);  
+    strcpy(tbl->arr[row][col]->input, input);
+    display_table(tbl);
 }
 
 // arguments: row, col of cell

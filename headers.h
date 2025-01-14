@@ -24,6 +24,12 @@ struct cell {
     int col;
 };
 
+// global variables
+struct table * tbl;
+int row;
+int col;
+char *clipboard;
+
 // cell/table edits
 void update_cell(struct table * tbl, int row, int col, char * input);
 char * clear_cell(struct table * tbl, int row, int col);
