@@ -71,10 +71,6 @@ int add_table(struct table ** tbl_lst, struct table * tbl){
     for (int i = 0; i < 20; i++){
         if (!tbl_lst[i]){
             tbl_lst[i] = tbl; 
-            if (i != 0){
-                tbl->prev = tbl_lst[i-1]; 
-                tbl->prev->next = tbl_lst[i];
-            } 
             return i;
         }
         if (i == 19){
@@ -89,7 +85,6 @@ int add_table(struct table ** tbl_lst, struct table * tbl){
 // deletes specified table and displays updated tab list
 void delete_table(struct table ** tbl_lst, int place, int export){
     if (place == 0){
-
     }
 }
 
