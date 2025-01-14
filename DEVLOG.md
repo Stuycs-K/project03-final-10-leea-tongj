@@ -57,3 +57,8 @@ This document must be updated daily by EACH group member.
 - Wrote display_table_list(5 minutes) 
 - Began writing add_table (10 minutes)
 - Testing and debugging in main (7 minutes) 
+
+### 2025-01-10 - Began table list functions 
+- Wrote select_cell (5 minutes)
+- Debugging init_table_list and add_list (20 minutes) 
+- Began writing delete_table(15 minutes) 
