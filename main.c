@@ -9,8 +9,8 @@ int main(){
     struct table * tbl = create_table(tbl_list, name, rows, cols);
     display_table(tbl); 
 
-    update_cell(tbl, 0, 0, "hi");
-    update_cell(tbl, 0, 1, "hello");
+    update_cell(tbl, 0, 0, "anastasiwiefuewhiufheiwuh");
+    update_cell(tbl, 0, 1, "hellowiuefhoieughwiuhge");
     display_table(tbl);
     write_csv(tbl);
     char output[10];
