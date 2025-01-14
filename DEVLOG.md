@@ -19,9 +19,9 @@ This document must be updated daily by EACH group member.
 ### 2025-01-08 - Work on csv.c
 - Finished read_csv method (30 minutes)
 
-### 2024-01-08 to 2024-01-12 - Excused absences due to travel
+### 2025-01-08 to 2024-01-12 - Excused absences due to travel
 
-### 2024-01-13 - Progress on write_csv and signal.c
+### 2025-01-13 - Progress on write_csv and signal.c
 - Did some research for and started working on signal.c (20 minutes)
 - Realized that windows.h doesn't work so brainstormed new plan for use of signals (10 minutes)
 - Moved and modified write_csv (10 minutes)

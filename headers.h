@@ -25,9 +25,9 @@ struct cell {
 };
 
 // global variables
-struct table * tbl;
-int row;
-int col;
+struct table * curr_tbl;
+int curr_row;
+int curr_col;
 char *clipboard;
 
 // cell/table edits

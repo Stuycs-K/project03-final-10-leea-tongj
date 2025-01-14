@@ -2,10 +2,10 @@
 
 static void sighandler(int signo) {
     if (signo == SIGINT) { //copy info 
-        clipboard = tbl->arr[row][col]->input;
+        clipboard = curr_tbl->arr[curr_row][curr_col]->input;
     }
     if (signo == SIGSTOP) { //paste info
-        update_cell(tbl, row, col, clipboard);
+        update_cell(curr_tbl, curr_row, curr_col, clipboard);
     }
     if (signo == SIGQUIT) { //exit
         exit(0);
