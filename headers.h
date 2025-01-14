@@ -33,15 +33,14 @@ char *clipboard;
 // cell/table edits
 void update_cell(struct table * tbl, int row, int col, char * input);
 char * clear_cell(struct table * tbl, int row, int col);
-void add_row();
-void add_column();
+void add_row(struct table * tbl);
+void add_column(struct table * tbl);
 
 // tab creation + display
 int err();
 struct table * create_table(struct table ** tbl_list, char* name, int rows, int cols);
 void display_table(struct table * tbl);
 void export_file(struct table *tbl);
-void read_file(char* name);
 struct table ** init_table_list();
 void display_table_list(struct table ** lst);
 int add_table(struct table ** tbl_lst, struct table * tbl);

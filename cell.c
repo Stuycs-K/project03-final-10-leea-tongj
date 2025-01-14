@@ -28,13 +28,23 @@ char * clear_cell(struct table * tbl, int row, int col){
 // no arguments
 // returns void 
 // adds a row to the end of spreadsheet and prompts user for input
-void add_row(){
-
+void add_row(struct table * tbl){
+    if (tbl->rows == 10){
+        printf("Max Rows Reached!");
+    }
+    else{
+        tbl->rows++;
+    }
 }
 
 // no arguments
 // returns void 
 // adds a column to the spreadsheet and prompts user for input
-void add_column(){
-
+void add_column(struct table * tbl){
+    if (tbl->cols == 10){
+        printf("Max Columns Reached!");
+    }
+    else{
+        tbl->cols++;
+    }
 }
