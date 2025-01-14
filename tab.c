@@ -56,9 +56,9 @@ struct table * create_table(struct table ** tbl_list, char* name, int rows, int 
 void display_table(struct table * tbl){
     for (int i = 0; i < tbl->rows; i++){
         for (int j = 0; j < tbl->cols; j++){
-            printf("|%s", tbl->arr[i][j]->input); 
+            printf("%10.10s %s", tbl->arr[i][j]->input, " "); 
             if (j == tbl->cols -1){
-                printf("|\n"); 
+                printf("\n"); 
             }
         }
     }
