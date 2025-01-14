@@ -134,21 +134,4 @@ void access_table(char* name){
 // deletes specified table and displays updated tab list
 void delete_table(char* name){
 
-// arguments: pointer to table struct 
-// returns void 
-// exports table info to a file
-void export_file(struct table *tbl){ 
-    char filename[256]; 
-    strcpy(filename, tbl->name);
-    strcat(filename, ".txt");
-    int w_file = open(filename, O_WRONLY | O_TRUNC | O_CREAT, 0611);
-    if (w_file == -1){
-        err();
-        printf("w_file : %u\n", w_file);
-    }
-    for (int i = 0; i < tbl->rows; i++){
-        for (int j = 0; j < tbl->cols; j++){
-            write(w_file, tbl->arr[i][j]->input, sizeof(tbl->arr[i][j]->input));
-        }
-    }
 }
