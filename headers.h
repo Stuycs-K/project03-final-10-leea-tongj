@@ -16,6 +16,8 @@ struct table{
     struct cell * arr[10][10]; 
     int rows; 
     int cols; 
+    struct table * prev; 
+    struct table * next;
 };
 
 struct cell {

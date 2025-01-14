@@ -27,35 +27,6 @@ void display_table_list(struct table ** tbl_lst){
     }
 }
 
-// arguments: name of table to access
-// returns int, place in table 
-// display contents of accessed table, prompt user to read/write
-int add_table(struct table ** tbl_lst, struct table * tbl){
-    for (int i = 0; i < 20; i++){
-        if (!tbl_lst[i]){
-            tbl_lst[i] = tbl; 
-            return i; 
-        }
-        if (i == 19){
-            printf("Met max size of table_list!");
-        }
-    }
-    return -1;
-}
-
-// arguments: name of table to delete, asks if user would like to export file 
-// returns void 
-// deletes specified table and displays updated tab list
-void delete_table(struct table ** tbl_lst, char* name, int export){
-    for (int i = 0; i < 20; i++){
-        if (strcmp(name, tbl_lst[i]->name) == 0){
-            if (export){
-                write_csv(tbl_lst[i]);
-            }
-        }
-    }
-}
-
 // arguments: name and dimensions of new table
 // returns void 
 // returns table struct containing table array, name, rows, and cols 
@@ -69,6 +40,7 @@ struct table * create_table(struct table ** tbl_list, char* name, int rows, int 
             struct cell * cll = (struct cell *) malloc(sizeof(struct cell)); 
             cll->row = i; 
             cll->col = j; 
+
             strcpy(cll->input, "0"); 
             tbl->arr[i][j] = cll;
         }
@@ -92,25 +64,32 @@ void display_table(struct table * tbl){
     }
 }
 
-void read_file(char* name){
-    int r_file = open(name, O_RDONLY, 0);
-    if (r_file == -1){
-        err(); 
-        printf("r_file: %u\n", r_file); 
-    }
-    char buff[1000]; 
-}
-
-// no arguments 
-// returns void 
-// displays all available tables with their names and dimensions
-void table_list(){
-
-}
-
 // arguments: name of table to access
-// returns void
+// returns int, place in table 
 // display contents of accessed table, prompt user to read/write
-// void access_table(char* name){
+int add_table(struct table ** tbl_lst, struct table * tbl){
+    for (int i = 0; i < 20; i++){
+        if (!tbl_lst[i]){
+            tbl_lst[i] = tbl; 
+            if (i != 0){
+                tbl->prev = tbl_lst[i-1]; 
+                tbl->prev->next = tbl_lst[i];
+            } 
+            return i;
+        }
+        if (i == 19){
+            printf("Met max size of table_list!");
+        }
+    }
+    return -1;
+}
 
-// }
+// arguments: int place of table in tbl_list, asks if user would like to export file 
+// returns void 
+// deletes specified table and displays updated tab list
+void delete_table(struct table ** tbl_lst, int place, int export){
+    if (place == 0){
+
+    }
+}
+
