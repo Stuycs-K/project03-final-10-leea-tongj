@@ -9,6 +9,7 @@
 #include <time.h>
 #include <sys/stat.h>
 #include <errno.h>
+#include <signal.h>
 
 struct table{
     char name[256]; 

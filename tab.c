@@ -50,7 +50,7 @@ void delete_table(struct table ** tbl_lst, char* name, int export){
     for (int i = 0; i < 20; i++){
         if (strcmp(name, tbl_lst[i]->name) == 0){
             if (export){
-                export_file(tbl_lst[i]);
+                write_csv(tbl_lst[i]);
             }
         }
     }
@@ -112,12 +112,5 @@ void table_list(){
 // returns void
 // display contents of accessed table, prompt user to read/write
 // void access_table(char* name){
-
-// }
-
-// arguments: name of table to delete 
-// returns void 
-// deletes specified table and displays updated tab list
-// void delete_table(char* name){
 
 // }
