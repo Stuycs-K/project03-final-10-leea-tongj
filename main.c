@@ -12,6 +12,7 @@ int main(){
     update_cell(tbl, 0, 0, "hi");
     update_cell(tbl, 0, 1, "hello");
     display_table(tbl);
+    write_csv(tbl);
     char output[10];
     strcpy(output, clear_cell(tbl, 0, 1)); 
     display_table(tbl); 

@@ -36,8 +36,13 @@ void write_csv(struct table *tbl) {
     }
     for (int i = 0; i < tbl->rows; i++){
         for (int j = 0; j < tbl->cols; j++){
-            write(w_file, tbl->arr[i][j]->input, sizeof(tbl->arr[i][j]->input));
+            char *entry = tbl->arr[i][j]->input;
+            write(w_file, entry, sizeof(entry));
+            if (j != tbl->cols-1) {
+                write(w_file, ",", 1);
+            }
         }
+        write(w_file, "\n", 1);
     }
     close(w_file);
 }

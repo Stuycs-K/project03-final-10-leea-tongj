@@ -22,7 +22,7 @@ struct table ** init_table_list(){
 // displays all available tables with their names and dimensions
 void display_table_list(struct table ** tbl_lst){
     for (int i = 0; tbl_lst[i]; i++){
-        printf("[%d]%s\n", i, tbl_lst[i]->name); 
+        printf("[%d] %s\n", i, tbl_lst[i]->name); 
         printf("Dimensions: %d x %d\n", tbl_lst[i]->rows, tbl_lst[i]->cols);
     }
 }
