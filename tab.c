@@ -54,6 +54,8 @@ struct table * create_table(struct table ** tbl_list, char* name, int rows, int 
 // returns void 
 // displays contents of table in spreadsheet format 
 void display_table(struct table * tbl){
+    curr_row = 0;
+    curr_col = 0;
     for (int i = 0; i < tbl->rows; i++){
         for (int j = 0; j < tbl->cols; j++){
             printf("|%s", tbl->arr[i][j]->input); 

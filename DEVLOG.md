@@ -19,14 +19,20 @@ This document must be updated daily by EACH group member.
 ### 2025-01-08 - Work on csv.c
 - Finished read_csv method (30 minutes)
 
-### 2024-01-08 to 2024-01-12 - Excused absences due to travel
+### 2025-01-08 to 2024-01-12 - Excused absences due to travel
 
-### 2024-01-13 - Progress on write_csv and signal.c
+### 2025-01-13 - Progress on write_csv and signal.c
 - Did some research for and started working on signal.c (20 minutes)
 - Realized that windows.h doesn't work so brainstormed new plan for use of signals (10 minutes)
 - Moved and modified write_csv (10 minutes)
 - Updated tab.c based on changes (10 minutes)
 - Tested and fixed write_csv (20 minutes)
+
+### 2025-01-14 - 
+- Discussed how deletion of tables should work (10 minutes)
+- Improved formatting of display_table (10 minutes)
+- Created global variables (5 minutes)
+- Implemented clipboard for copying/pasting from/to cells (10 minutes)
 
 ## Janet Tong
 
