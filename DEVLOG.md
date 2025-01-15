@@ -36,6 +36,11 @@ This document must be updated daily by EACH group member.
 - Debugged global variables (15 minutes)
 - Started ncurses (20 minutes)
 
+### 2025-01-15 - Signals, ncurses
+- Learned how to initialize and deactivate ncurses (15 minutes)
+- Figured out how to intercept arrow keys to move cursor (20 minutes)
+- Integrated signals.c into ncurses.c so that `ctrl+\` exits the window and the program (5 minutes) 
+
 ## Janet Tong
 
 ### 2025-01-06 - Skeleton Files + Function Design
