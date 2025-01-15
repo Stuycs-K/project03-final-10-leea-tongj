@@ -24,12 +24,6 @@ struct cell {
     int col;
 };
 
-// global variables
-extern struct table * curr_tbl;
-extern int curr_row;
-extern int curr_col;
-extern char *clipboard;
-
 // cell/table edits
 void update_cell(struct table * tbl, int row, int col, char * input);
 char * clear_cell(struct table * tbl, int row, int col);
@@ -53,4 +47,7 @@ void write_csv(struct table *tbl);
 //signal
 static void sighandler(int signo);
 void sig();
+
+//ncurses
+void ncurses();
 #endif

@@ -7,38 +7,39 @@ int curr_col;
 char *clipboard;
 
 int main(){
-    struct table ** tbl_list = init_table_list();
+    ncurses();
+    // struct table ** tbl_list = init_table_list();
     
-    char name[10] = "table1"; 
-    int rows = 2; 
-    int cols = 2; 
-    struct table * tbl = create_table(tbl_list, name, rows, cols);
-    display_table(tbl); 
+    // char name[10] = "table1"; 
+    // int rows = 2; 
+    // int cols = 2; 
+    // struct table * tbl = create_table(tbl_list, name, rows, cols);
+    // display_table(tbl); 
 
-    update_cell(tbl, 0, 0, "anas");
-    update_cell(tbl, 0, 1, "hell");
-    display_table(tbl);
-    write_csv(tbl);
-    char output[10];
-    strcpy(output, clear_cell(tbl, 0, 1)); 
-    display_table(tbl); 
-    printf("Value removed: %s\n", output);
+    // update_cell(tbl, 0, 0, "anas");
+    // update_cell(tbl, 0, 1, "hell");
+    // display_table(tbl);
+    // write_csv(tbl);
+    // char output[10];
+    // strcpy(output, clear_cell(tbl, 0, 1)); 
+    // display_table(tbl); 
+    // printf("Value removed: %s\n", output);
 
-    display_table_list(tbl_list);
-    printf("\n");
-    char name2[10] = "table2";
-    struct table * tbll = create_table(tbl_list, name2, rows, cols);
-    display_table_list(tbl_list);
-    printf("\n");
-    add_row(tbl); 
-    add_column(tbll);
-    display_table_list(tbl_list);
-    printf("\n");
-    delete_table(tbl_list, 1, 0);
-    display_table_list(tbl_list);
-    printf("\n");
+    // display_table_list(tbl_list);
+    // printf("\n");
+    // char name2[10] = "table2";
+    // struct table * tbll = create_table(tbl_list, name2, rows, cols);
+    // display_table_list(tbl_list);
+    // printf("\n");
+    // add_row(tbl); 
+    // add_column(tbll);
+    // display_table_list(tbl_list);
+    // printf("\n");
+    // delete_table(tbl_list, 1, 0);
+    // display_table_list(tbl_list);
+    // printf("\n");
 
-    sig();
+    // sig();
 
      // if user chooses this option, they will be prompted for the name of the table and the path to the csv file
     // e.g. read_csv("NYC Population Data", "../lab09-structrw-alee51/nyc_pop.csv");
