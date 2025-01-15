@@ -24,12 +24,13 @@ int main(){
     struct table * tbll = create_table(tbl_list, name2, rows, cols);
     display_table_list(tbl_list);
     printf("\n");
+    add_row(tbl); 
+    add_column(tbll);
+    display_table_list(tbl_list);
+    printf("\n");
     delete_table(tbl_list, 1, 0);
     display_table_list(tbl_list);
     printf("\n");
-
-
-
 
     sig();
 
