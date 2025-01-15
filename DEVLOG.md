@@ -69,8 +69,10 @@ This document must be updated daily by EACH group member.
 - Debugging init_table_list and add_list (20 minutes) 
 - Began writing delete_table(15 minutes) 
 
-### 2025-01-14 - Delete_table, add_row, add_column
+### 2025-01-14 - Delete_table, add_row, add_column & Progress with user.c
 - Considered using linked list + removed (5 minutes)
 - Discussed how deletion of tables should work (10 minutes)
 - Discussed and wrote add_row and add_column (15 minutes)
 - Wrote delete_table (20 minutes)
+- Tested and verified all table and cell functions work (10 minutes) 
+- Began user interface with prompts in table_lst_func(20 minutes)
