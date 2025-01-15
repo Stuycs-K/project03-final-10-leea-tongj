@@ -26,30 +26,11 @@ void display_menu(struct table ** tbl_list, int home, int view, int select){
             strcat(menu, "[export] export table to file \n");
         }
     }
+    printf("%s", menu);
 }
-
-// prompts user with table function options
-int table_func(struct table * tbl){
-
-}
-
-
 
 // prompts user with table list function options
 int table_lst_func(struct table ** tbl_lst){
-    printf("Welcome to the spreadsheet. Choose from menu below: "); 
-    char buff[10]; 
-    fgets(buff, sizeof(buff), stdin);
-    if (!strcmp(buff, "Y")){
-        display_table_list(tbl_lst); 
-        printf("Select a table: "); 
-        int val; 
-        fgets(&val, sizeof(int), stdin); 
-        printf("Would you like to access or delete table %d?", val); 
-        char acde[10]; 
-        fgets(acde, sizeof(acde), stdin); 
-        if (!strcmp(acde, "delete")){
-            delete_table(tbl_lst, val, 0);
-        }
-    }
+    printf("Welcome to the spreadsheet. Begin by typing in the prompt with a menu directive");
+    display_menu(tbl_lst, 0, 0, 0);
 }
