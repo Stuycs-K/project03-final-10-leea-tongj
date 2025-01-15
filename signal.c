@@ -1,5 +1,11 @@
 #include "headers.h"
 
+// global variables
+extern struct table * curr_tbl;
+extern int curr_row;
+extern int curr_col;
+extern char *clipboard;
+
 static void sighandler(int signo) {
     if (signo == SIGINT) { //copy info 
         clipboard = curr_tbl->arr[curr_row][curr_col]->input;

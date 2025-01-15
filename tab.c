@@ -1,5 +1,11 @@
 #include "headers.h"
 
+// global variables
+extern struct table * curr_tbl;
+extern int curr_row;
+extern int curr_col;
+extern char *clipboard;
+
 int err(){
     printf("errno %d\n",errno);
     printf("%s\n",strerror(errno));
@@ -57,10 +63,8 @@ void display_table(struct table * tbl){
     curr_col = 0;
     for (int i = 0; i < tbl->rows; i++){
         for (int j = 0; j < tbl->cols; j++){
-            printf("|%s", tbl->arr[i][j]->input); 
             printf("%10.10s %s", tbl->arr[i][j]->input, " "); 
             if (j == tbl->cols -1){
-                printf("|\n"); 
                 printf("\n"); 
             }
         }

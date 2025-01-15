@@ -1,5 +1,11 @@
 #include "headers.h"
 
+// global variables
+struct table * curr_tbl;
+int curr_row;
+int curr_col;
+char *clipboard;
+
 int main(){
     struct table ** tbl_list = init_table_list();
     

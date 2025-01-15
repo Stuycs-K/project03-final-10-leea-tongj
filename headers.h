@@ -25,10 +25,10 @@ struct cell {
 };
 
 // global variables
-struct table * curr_tbl;
-int curr_row;
-int curr_col;
-char *clipboard;
+extern struct table * curr_tbl;
+extern int curr_row;
+extern int curr_col;
+extern char *clipboard;
 
 // cell/table edits
 void update_cell(struct table * tbl, int row, int col, char * input);
