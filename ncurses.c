@@ -6,7 +6,27 @@ extern int curr_row;
 extern int curr_col;
 extern char *clipboard;
 
+static void sighandler(int signo) {
+    if (signo == SIGINT) { //copy info 
+        clipboard = curr_tbl->arr[curr_row][curr_col]->input;
+    }
+    if (signo == SIGSTOP) { //paste info
+        update_cell(curr_tbl, curr_row, curr_col, clipboard);
+    }
+    if (signo == SIGQUIT) { //exit
+        endwin();
+        exit(0);
+    }
+}
+
+void sig() {
+    signal(SIGINT, sighandler);
+    signal(SIGSTOP, sighandler);
+    signal(SIGQUIT, sighandler);
+}
+
 void ncurses() {
+    sig();
     // init screen and sets up screen
     initscr();
 
@@ -14,7 +34,9 @@ void ncurses() {
     noecho(); // Don't echo input characters to the screen
 
     int ch;
-    while ((ch = getch()) != 'q') {
+    while (1) {
+        
+        ch = getch();
         switch (ch) {
             case KEY_UP:
                 if (curr_row > 0) {
@@ -45,7 +67,4 @@ void ncurses() {
                 break;
         }
     }
-
-    // deallocates memory and ends ncurses
-    endwin();
 }
