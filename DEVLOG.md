@@ -58,7 +58,13 @@ This document must be updated daily by EACH group member.
 - Began writing add_table (10 minutes)
 - Testing and debugging in main (7 minutes) 
 
-### 2025-01-10 - Began table list functions 
+### 2025-01-13 - Debugging table list functions 
 - Wrote select_cell (5 minutes)
 - Debugging init_table_list and add_list (20 minutes) 
 - Began writing delete_table(15 minutes) 
+
+### 2025-01-14 - Delete_table, add_row, add_column
+- Considered using linked list + removed (5 minutes)
+- Discussed how deletion of tables should work (10 minutes)
+- Discussed and wrote add_row and add_column (15 minutes)
+- Wrote delete_table (20 minutes)
