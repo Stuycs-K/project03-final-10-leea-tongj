@@ -46,7 +46,6 @@ struct table * create_table(struct table ** tbl_list, char* name, int rows, int 
         }
     }
     int place = add_table(tbl_list, tbl); 
-    printf("%d place in tbl_list", place);
     return tbl; 
 }
 
@@ -84,10 +83,18 @@ int add_table(struct table ** tbl_lst, struct table * tbl){
     return -1;
 }
 
-// arguments: int place of table in tbl_list, asks if user would like to export file 
-// returns void 
+// arguments: int place of table in tbl_list, asks if user would like to export file
+// returns void
 // deletes specified table and displays updated tab list
 void delete_table(struct table ** tbl_lst, int place, int export){
-    if (place == 0){
-    }
+   if (export){
+       write_csv(tbl_lst[place]);
+   }
+   free(tbl_lst[place]);
+   for (int i = place+1; ((tbl_lst[i]) || (i == place + 1)); i++){
+       tbl_lst[i-1] = tbl_lst[i];
+       if (tbl_lst[i+1] == NULL){
+           tbl_lst[i] = NULL;
+       }
+   }
 }

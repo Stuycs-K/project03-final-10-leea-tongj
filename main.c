@@ -9,8 +9,8 @@ int main(){
     struct table * tbl = create_table(tbl_list, name, rows, cols);
     display_table(tbl); 
 
-    update_cell(tbl, 0, 0, "anastasiwiefuewhiufheiwuh");
-    update_cell(tbl, 0, 1, "hellowiuefhoieughwiuhge");
+    update_cell(tbl, 0, 0, "anas");
+    update_cell(tbl, 0, 1, "hell");
     display_table(tbl);
     write_csv(tbl);
     char output[10];
@@ -19,6 +19,14 @@ int main(){
     printf("Value removed: %s\n", output);
 
     display_table_list(tbl_list);
+    printf("\n");
+    char name2[10] = "table2";
+    struct table * tbll = create_table(tbl_list, name2, rows, cols);
+    display_table_list(tbl_list);
+    printf("\n");
+    delete_table(tbl_list, 1, 0);
+    display_table_list(tbl_list);
+    printf("\n");
 
 
 
