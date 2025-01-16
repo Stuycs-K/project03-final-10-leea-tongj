@@ -86,3 +86,11 @@ This document must be updated daily by EACH group member.
 - Wrote delete_table (20 minutes)
 - Tested and verified all table and cell functions work (10 minutes) 
 - Began user interface with prompts in table_lst_func(20 minutes)
+
+### 2025-01-15 - Progress with user.c, menu, functions to call after prompt
+- Discussed ncurses documentation (10 minutes) 
+- Wrote display_menu to account for different prompts to display (20 minutes);
+- Wrote table_lst_func to read inputted prompt and call appropriate functions (30 minutes) 
+- Modified to add parse_args for access and delete (10 minutes)
+- Wrote strerr in case of invalid inputs (7 minutes)
+

@@ -50,4 +50,11 @@ void sig();
 
 //ncurses
 void ncurses();
+
+//user 
+void strerr(char * str, int size, char * repeat);
+void parse_args(char * line, char ** arg_ary);
+void display_menu(struct table ** tbl_list, int home, int view, int select);
+int table_lst_func(struct table ** tbl_lst);
+
 #endif
