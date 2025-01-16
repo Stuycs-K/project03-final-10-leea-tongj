@@ -30,7 +30,7 @@ void display_menu(struct table ** tbl_list, int home, int view, int select){
     char menu[400] = "Choose from the menu below: \n"; 
     strcat(menu, "[home] return to home page \n"); 
     strcat(menu, "[create] create table \n"); 
-    strcat(menu, "[import] import table \n"); 
+    strcat(menu, "[import] import csv file to table \n"); 
     //if no tables created, only display create table option
     if (tbl_list[0]){
         if (home){
@@ -39,7 +39,7 @@ void display_menu(struct table ** tbl_list, int home, int view, int select){
         if (view){
             strcat(menu, "[edit n] edit nth table in new window \n"); 
             strcat(menu, "[delete n] delete nth table \n"); 
-            strcat(menu, "[export n] export nth table to file \n");
+            strcat(menu, "[export n] export nth table to csv file \n");
         }
     }
     printf("%s", menu);

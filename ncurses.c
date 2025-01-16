@@ -41,14 +41,7 @@ void edit_table(struct table * tbl){
     refresh();
 }
 
-void ncurses(struct table * tbl) {
-    sig();
-    // initize screen
-    initscr();
-
-    keypad(stdscr, TRUE); // Enable keypad mode to recognize special keys
-    //noecho(); // Don't echo input characters to the screen
-    //edit_table(tbl);
+void draw_grid(struct table * tbl) {
     refresh();
     WINDOW *windows[10][10];
     for (int i = 0; i < tbl->rows; i++) {
@@ -61,10 +54,22 @@ void ncurses(struct table * tbl) {
     curr_row = 0;
     curr_col = 0;
     move(1, 2);
+}
+
+void ncurses(struct table * tbl) {
+    sig();
+    // initize screen
+    initscr();
+
+    keypad(stdscr, TRUE); // Enable keypad mode to recognize special keys
+    
+    draw_grid(tbl);
+    
     int ch;
     int count = 0;
     while (1) { 
         ch = getch();
+        echo();
         switch (ch) {
             case KEY_UP:
                 if (curr_row > 0) {
@@ -103,6 +108,15 @@ void ncurses(struct table * tbl) {
                 if (count > 0) {
                     count--;
                 }
+                break;
+            case 27: //escape key
+                noecho();
+                endwin();
+                break;
+            case 10: //enter key
+                move(1, 2);
+                delch();
+                delch();
                 break;
             default:
                 //printw("Character pressed: %c\n", ch);

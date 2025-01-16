@@ -49,6 +49,7 @@ static void sighandler(int signo);
 void sig();
 
 //ncurses
+void draw_grid(struct table * tbl);
 void ncurses();
 
 //user 
