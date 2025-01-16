@@ -11,8 +11,8 @@ int main(){
     struct table ** tbl_list = init_table_list();
     
     char name[10] = "table1"; 
-    int rows = 2; 
-    int cols = 2; 
+    int rows = 5; 
+    int cols = 3; 
     struct table * tbl = create_table(tbl_list, name, rows, cols);
     // display_table(tbl); 
 

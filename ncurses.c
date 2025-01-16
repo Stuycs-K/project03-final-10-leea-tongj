@@ -49,9 +49,14 @@ void ncurses(struct table * tbl) {
     keypad(stdscr, TRUE); // Enable keypad mode to recognize special keys
     //noecho(); // Don't echo input characters to the screen
     edit_table(tbl);
-    WINDOW *win = newwin(3, 12, 0, 0);
-    box(win, 0, 0);
-    wrefresh(win);
+    WINDOW *windows[10][10];
+    for (int i = 0; i < tbl-> rows; i++) {
+        for (int j = 0; j < tbl->cols; j++) {
+            windows[i][j] = newwin(3, 12, 3*i, 12*j+1);
+            box(windows[i][j], 0, 0);
+            wrefresh(windows[i][j]);
+        }
+    }
     int ch;
     while (1) { 
         ch = getch();
