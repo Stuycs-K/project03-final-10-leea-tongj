@@ -9,12 +9,14 @@ This document must be updated daily by EACH group member.
 - Filled in README.md (10 minutes)
 - Created git branch (1 minute)
 - Added skeleton files (7 minutes)
+- Planning (30 minutes)
 
 ### 2025-01-07 - Planning + starting csv.c
 - Discussed creating structs for tables and cells (10 minutes)
 - Discussed maximum number of columns for tables and maximum character length for entries (7 minutes)
 - Discussed only exporting the spreadsheet to a file if the user asks for it (10 minutes)
 - Started writing read_csv method to convert csv (10 minutes)
+- Planning (30 minutes)
 
 ### 2025-01-08 - Work on csv.c
 - Finished read_csv method (30 minutes)
@@ -39,7 +41,8 @@ This document must be updated daily by EACH group member.
 ### 2025-01-15 - Signals, ncurses
 - Learned how to initialize and deactivate ncurses (15 minutes)
 - Figured out how to intercept arrow keys to move cursor (20 minutes)
-- Integrated signals.c into ncurses.c so that `ctrl+\` exits the window and the program (5 minutes) 
+- Integrated signals.c into ncurses.c so that `ctrl+\` exits the window and the program (5 minutes)
+- 
 
 ## Janet Tong
 
