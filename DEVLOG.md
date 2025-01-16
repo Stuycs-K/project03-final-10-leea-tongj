@@ -42,7 +42,9 @@ This document must be updated daily by EACH group member.
 - Learned how to initialize and deactivate ncurses (15 minutes)
 - Figured out how to intercept arrow keys to move cursor (20 minutes)
 - Integrated signals.c into ncurses.c so that `ctrl+\` exits the window and the program (5 minutes)
-- 
+- Intercepted backspace key (5 minutes)
+- Figured out how to display table in ncurses (20 minutes)
+- Learned how to create new windows in ncurses (10 minutes)
 
 ## Janet Tong
 
