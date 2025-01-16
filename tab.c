@@ -55,7 +55,7 @@ struct table * create_table(struct table ** tbl_list, char* name, int rows, int 
     return tbl; 
 }
 
-// no arguments 
+// argument: pointer to table to display
 // returns void 
 // displays contents of table in spreadsheet format 
 void display_table(struct table * tbl){

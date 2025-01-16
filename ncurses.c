@@ -25,17 +25,32 @@ void sig() {
     signal(SIGQUIT, sighandler);
 }
 
-void ncurses() {
+//if the user wants to edit a table
+void edit_table(struct table * tbl){
+    curr_row = 0;
+    curr_col = 0;
+    for (int i = 0; i < tbl->rows; i++){
+        for (int j = 0; j < tbl->cols; j++){
+            printw("%10.10s %s", tbl->arr[i][j]->input, " "); 
+            if (j == tbl->cols -1){
+                printw("\n"); 
+            }
+        }
+    }
+    move(0, 9);
+    refresh();
+}
+
+void ncurses(struct table * tbl) {
     sig();
-    // init screen and sets up screen
+    // initize screen
     initscr();
 
     keypad(stdscr, TRUE); // Enable keypad mode to recognize special keys
-    noecho(); // Don't echo input characters to the screen
-
+    //noecho(); // Don't echo input characters to the screen
+    edit_table(tbl);
     int ch;
-    while (1) {
-        
+    while (1) { 
         ch = getch();
         switch (ch) {
             case KEY_UP:
@@ -62,8 +77,11 @@ void ncurses() {
                     move(curr_row, curr_col*10);
                 }
                 break;
+            case KEY_BACKSPACE:
+                delch();
+                break;
             default:
-                printw("Character pressed: %c\n", ch);
+                //printw("Character pressed: %c\n", ch);
                 break;
         }
     }

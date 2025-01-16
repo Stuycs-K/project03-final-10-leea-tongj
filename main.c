@@ -7,17 +7,18 @@ int curr_col;
 char *clipboard;
 
 int main(){
-    ncurses();
-    // struct table ** tbl_list = init_table_list();
     
-    // char name[10] = "table1"; 
-    // int rows = 2; 
-    // int cols = 2; 
-    // struct table * tbl = create_table(tbl_list, name, rows, cols);
+    struct table ** tbl_list = init_table_list();
+    
+    char name[10] = "table1"; 
+    int rows = 2; 
+    int cols = 2; 
+    struct table * tbl = create_table(tbl_list, name, rows, cols);
     // display_table(tbl); 
 
     // update_cell(tbl, 0, 0, "anas");
     // update_cell(tbl, 0, 1, "hell");
+    ncurses(tbl);
     // display_table(tbl);
     // write_csv(tbl);
     // char output[10];

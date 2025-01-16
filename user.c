@@ -37,7 +37,7 @@ void display_menu(struct table ** tbl_list, int home, int view, int select){
             strcat(menu, "[view_list] view table list \n"); 
         }
         if (view){
-            strcat(menu, "[access n] access nth table in new window \n"); 
+            strcat(menu, "[edit n] edit nth table in new window \n"); 
             strcat(menu, "[delete n] delete nth table \n"); 
             strcat(menu, "[export n] export nth table to file \n");
         }
@@ -73,7 +73,7 @@ int table_lst_func(struct table ** tbl_lst){
         display_table_list(tbl_lst); 
     }
 
-    if (!strcmp(args[0], "access")){
+    if (!strcmp(args[0], "edit")){
         ncurses(); 
     }
 
