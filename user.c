@@ -10,6 +10,16 @@ void strerr(char * str, int size, char * repeat){
     }
 }
 
+void parse_args(char * line, char ** arg_ary){
+    char *curr = line; 
+    int i = 0; 
+    while (curr){
+        arg_ary[i] = strsep(&curr, " ");
+        i++; 
+    }
+    arg_ary[i] = NULL; 
+}
+
 // pointer to tbl_list
 // int home indicates whether previous command was home 
 // int view indicates whether previous command was view list
@@ -42,11 +52,13 @@ int table_lst_func(struct table ** tbl_lst){
     printf("Prompt: "); 
     char buff[100]; 
     fgets(buff, sizeof(buff), stdin); 
-    if (!strcmp(buff, "home")){
+    char * args[3]; 
+    parse_args(buff, args);
+    if (!strcmp(args[0], "home")){
         display_menu(tbl_lst, 1, 0, 0);
     }
 
-    if (!strcmp(buff, "import")){
+    if (!strcmp(args[0], "import")){
         printf("Provide the path to the csv you'd like to import: "); 
         char path[256]; 
         fgets(path, sizeof(path), stdin); 
@@ -56,19 +68,19 @@ int table_lst_func(struct table ** tbl_lst){
         read_csv(name, path);
     }
 
-    if (!strcmp(buff, "view_list")){
+    if (!strcmp(args[0], "view_list")){
         display_menu(tbl_lst, 0, 1, 0);
         display_table_list(tbl_lst); 
     }
 
-    // if (!strcmp(buff, "access")){
-    //     ncurses(); 
-    // }
+    if (!strcmp(args[0], "access")){
+        ncurses(); 
+    }
 
-    // if (!strcmp(buff, "delete")){
-    //     printf("Before deletion, would you like to export this table? (Y/N)"); 
-    //     char val[5];
-    //     fgets(val, sizeof(char), stdin); 
-    //     delete_table(tbl_lst, place, strcmp(val, "Y"))
-    // }
+    if (!strcmp(args[0], "delete")){
+        printf("Before deletion, would you like to export this table? (Y/N)"); 
+        char val[5];
+        fgets(val, sizeof(char), stdin); 
+        delete_table(tbl_lst, args[1], strcmp(val, "Y"));
+    }
 }
