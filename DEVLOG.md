@@ -45,6 +45,8 @@ This document must be updated daily by EACH group member.
 - Intercepted backspace key (5 minutes)
 - Figured out how to display table in ncurses (20 minutes)
 - Learned how to create new windows in ncurses (10 minutes)
+- Fixed arrow keys code so that the cursor goes the correct amount (10 minutes)
+- Implemented character limit for each box (5 minutes)
 
 ## Janet Tong
 
