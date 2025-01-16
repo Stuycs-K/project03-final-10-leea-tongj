@@ -48,6 +48,11 @@ This document must be updated daily by EACH group member.
 - Fixed arrow keys code so that the cursor goes the correct amount (10 minutes)
 - Implemented character limit for each box (5 minutes)
 
+### 2025-01-16 - Ncurses
+- Discussed menu items and user interface (10 minutes)
+- Intercepted escape key and enter key (20 minutes)
+- Identified and tried to fix undesirable consequence of backspace key (10 minutes)
+
 ## Janet Tong
 
 ### 2025-01-06 - Skeleton Files + Function Design
