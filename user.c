@@ -10,11 +10,11 @@ void strerr(char * str, int size, char * repeat){
     }
 }
 
-void parse_args(char * line, char ** arg_ary){
+void parse_args(char * line, char * sep, char ** arg_ary){
     char *curr = line; 
     int i = 0; 
     while (curr){
-        arg_ary[i] = strsep(&curr, " ");
+        arg_ary[i] = strsep(&curr, sep);
         i++; 
     }
     arg_ary[i] = NULL; 
@@ -38,6 +38,7 @@ void display_menu(struct table ** tbl_list, int home, int view, int select){
         }
         if (view){
             strcat(menu, "[edit n] edit nth table in new window \n"); 
+            strcat(menu, "[resize n] resize the dimenions of nth table \n"); 
             strcat(menu, "[delete n] delete nth table \n"); 
             strcat(menu, "[export n] export nth table to file \n");
         }
@@ -53,7 +54,7 @@ int table_lst_func(struct table ** tbl_lst){
     char buff[100]; 
     fgets(buff, sizeof(buff), stdin); 
     char * args[3]; 
-    parse_args(buff, args);
+    parse_args(buff, " ", args);
     if (!strcmp(args[0], "home")){
         display_menu(tbl_lst, 1, 0, 0);
     }
@@ -75,6 +76,16 @@ int table_lst_func(struct table ** tbl_lst){
 
     if (!strcmp(args[0], "edit")){
         ncurses(); 
+    }
+
+    if (!strcmp(args[0], "resize")){
+        int table_num = args[1]; 
+        printf("Input new dimensions (mxn): "); 
+        char line[5]; 
+        fgets(line, sizeof(line), stdin); 
+        char * argss[3]; 
+        parse_args(line, "x", argss); 
+        resize(tbl_lst[table_num], argss[0], argss[1]);
     }
 
     if (!strcmp(args[0], "delete")){

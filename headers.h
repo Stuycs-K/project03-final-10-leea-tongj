@@ -27,8 +27,7 @@ struct cell {
 // cell/table edits
 void update_cell(struct table * tbl, int row, int col, char * input);
 char * clear_cell(struct table * tbl, int row, int col);
-void add_row(struct table * tbl);
-void add_column(struct table * tbl);
+void resize(struct table *tbl, int row, int col);
 
 // tab creation + display
 int err();
