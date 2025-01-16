@@ -48,48 +48,68 @@ void ncurses(struct table * tbl) {
 
     keypad(stdscr, TRUE); // Enable keypad mode to recognize special keys
     //noecho(); // Don't echo input characters to the screen
-    edit_table(tbl);
+    //edit_table(tbl);
+    refresh();
     WINDOW *windows[10][10];
-    for (int i = 0; i < tbl-> rows; i++) {
+    for (int i = 0; i < tbl->rows; i++) {
         for (int j = 0; j < tbl->cols; j++) {
             windows[i][j] = newwin(3, 12, 3*i, 12*j+1);
             box(windows[i][j], 0, 0);
             wrefresh(windows[i][j]);
         }
     }
+    curr_row = 0;
+    curr_col = 0;
+    move(1, 2);
     int ch;
+    int count = 0;
     while (1) { 
         ch = getch();
         switch (ch) {
             case KEY_UP:
                 if (curr_row > 0) {
                     curr_row--;
-                    move(curr_row, curr_col*10);
+                    move(3*curr_row+1, curr_col*12+2);
+                    count = 0;
+                    echo();
                 }
                 break;
             case KEY_DOWN:
-                if (curr_row < 10) {
+                if (curr_row < tbl->rows-1) {
                     curr_row++;
-                    move(curr_row, curr_col*10);
+                    move(3*curr_row+1, curr_col*12+2);
+                    count = 0;
+                    echo();
                 }
                 break;
             case KEY_LEFT:
                 if (curr_col > 0) {
                     curr_col--;
-                    move(curr_row, curr_col*10);
+                    move(3*curr_row+1, curr_col*12+2);
+                    count = 0;
+                    echo();
                 }
                 break;
             case KEY_RIGHT:
-                if (curr_col < 10) {
+                if (curr_col < tbl->cols-1) {
                     curr_col++;
-                    move(curr_row, curr_col*10);
+                    move(3*curr_row+1, curr_col*12+2);
+                    count = 0;
+                    echo();
                 }
                 break;
             case KEY_BACKSPACE:
                 delch();
+                if (count > 0) {
+                    count--;
+                }
                 break;
             default:
                 //printw("Character pressed: %c\n", ch);
+                count++;
+                if (count > 9) {
+                    noecho();
+                }
                 break;
         }
     }
