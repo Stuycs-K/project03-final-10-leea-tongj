@@ -25,26 +25,15 @@ char * clear_cell(struct table * tbl, int row, int col){
     return cleared_input; 
 }
 
-// no arguments
+// arguments: pointer to tbl, row, col, new dimensions of table
 // returns void 
-// adds a row to the end of spreadsheet and prompts user for input
-void add_row(struct table * tbl){
-    if (tbl->rows == 10){
-        printf("Max Rows Reached!");
+// resizes the table dimensions 
+void resize(struct table *tbl, int row, int col){
+    if (row == 10 || col == 10){
+        printf("Invalid dimensions! Max dimensions: 10 x 10");
+        exit(0);
     }
-    else{
-        tbl->rows++;
-    }
+    tbl->rows += row - tbl->rows; 
+    tbl->cols += col - tbl->cols;
 }
 
-// no arguments
-// returns void 
-// adds a column to the spreadsheet and prompts user for input
-void add_column(struct table * tbl){
-    if (tbl->cols == 10){
-        printf("Max Columns Reached!");
-    }
-    else{
-        tbl->cols++;
-    }
-}
