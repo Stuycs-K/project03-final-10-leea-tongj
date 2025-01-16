@@ -1,5 +1,14 @@
 #include "headers.h"
 
+// arguments: str inputted, max size of str, prompt to repeat 
+// returns void
+// notifies user if they exceed the intended size of the str/input unintended info
+void strerr(char * str, int size, char * repeat){
+    if (strlen(str) > size){
+        printf("Maximum size of input is %d\n", size); 
+        printf("%s", repeat);
+    }
+}
 
 // pointer to tbl_list
 // int home indicates whether previous command was home 
