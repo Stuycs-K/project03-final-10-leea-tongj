@@ -47,7 +47,7 @@ void display_menu(struct table ** tbl_list, int home, int view, int select){
 }
 
 // prompts user with table list function options
-int table_lst_func(struct table ** tbl_lst){
+void table_lst_func(struct table ** tbl_lst){
     printf("Welcome to the spreadsheet. Begin by typing in the prompt with a menu directive\n");
     display_menu(tbl_lst, 0, 0, 0);
     printf("Prompt: "); 
@@ -75,23 +75,23 @@ int table_lst_func(struct table ** tbl_lst){
     }
 
     if (!strcmp(args[0], "edit")){
-        ncurses(); 
+        //ncurses(); 
     }
 
     if (!strcmp(args[0], "resize")){
-        int table_num = args[1]; 
+        int table_num = *args[1] - '0'; 
         printf("Input new dimensions (mxn): "); 
         char line[5]; 
         fgets(line, sizeof(line), stdin); 
-        char * argss[3]; 
-        parse_args(line, "x", argss); 
-        resize(tbl_lst[table_num], argss[0], argss[1]);
+        char * dim[3]; 
+        parse_args(line, "x", dim); 
+        resize(tbl_lst[table_num], *dim[0]-'0', *dim[1]-'0');
     }
 
     if (!strcmp(args[0], "delete")){
         printf("Before deletion, would you like to export this table? (Y/N)"); 
         char val[5];
         fgets(val, sizeof(char), stdin); 
-        delete_table(tbl_lst, args[1], strcmp(val, "Y"));
+        delete_table(tbl_lst, *args[1]-'0', strcmp(val, "Y"));
     }
 }
