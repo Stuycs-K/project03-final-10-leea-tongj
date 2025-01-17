@@ -27,8 +27,7 @@ struct cell {
 // cell/table edits
 void update_cell(struct table * tbl, int row, int col, char * input);
 char * clear_cell(struct table * tbl, int row, int col);
-void add_row(struct table * tbl);
-void add_column(struct table * tbl);
+void resize(struct table *tbl, int row, int col);
 
 // tab creation + display
 int err();
@@ -49,13 +48,15 @@ static void sighandler(int signo);
 void sig();
 
 //ncurses
+void ncurses(struct table * tbl);
+void edit_table(struct table * tbl);
 void draw_grid(struct table * tbl);
 void ncurses();
 
 //user 
 void strerr(char * str, int size, char * repeat);
-void parse_args(char * line, char ** arg_ary);
+void parse_args(char * line, char * sep, char ** arg_ary);
 void display_menu(struct table ** tbl_list, int home, int view, int select);
-int table_lst_func(struct table ** tbl_lst);
+void table_lst_func(struct table ** tbl_lst);
 
 #endif

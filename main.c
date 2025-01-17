@@ -15,10 +15,11 @@ int main(){
     int cols = 3; 
     struct table * tbl = create_table(tbl_list, name, rows, cols);
     // display_table(tbl); 
+    table_lst_func(tbl_list);
 
     // update_cell(tbl, 0, 0, "anas");
     // update_cell(tbl, 0, 1, "hell");
-    ncurses(tbl);
+    //ncurses(tbl);
     // display_table(tbl);
     // write_csv(tbl);
     // char output[10];
