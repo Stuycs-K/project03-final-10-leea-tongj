@@ -52,6 +52,9 @@ This document must be updated daily by EACH group member.
 - Discussed menu items and user interface (10 minutes)
 - Intercepted escape key and enter key (20 minutes)
 - Identified and tried to fix undesirable consequence of backspace key (10 minutes)
+- Debugged user.c (20 minutes)
+- Added fill_table (10 minutes)
+- Tried and failed to fix the clearing of the rows (10 minutes)
 
 ## Janet Tong
 
