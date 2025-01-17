@@ -55,6 +55,9 @@ void table_lst_func(struct table ** tbl_lst){
     fgets(buff, sizeof(buff), stdin); 
     char * args[3]; 
     parse_args(buff, " ", args);
+    for (int i = 0; i < 3; i++){
+        printf("%s", args[i]);
+    }
     if (!strcmp(args[0], "home")){
         display_menu(tbl_lst, 1, 0, 0);
     }
