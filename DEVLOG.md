@@ -103,3 +103,8 @@ This document must be updated daily by EACH group member.
 - Modified to add parse_args for access and delete (10 minutes)
 - Wrote strerr in case of invalid inputs (7 minutes)
 
+### 2025-01-16 - Progress with menu + organization 
+- Discussed menu items and user interface (10 minutes)
+- Wrote resize as opposed to add rows/columns (5 minutes)
+- Edited parse_args (5 minutes)
+- Debugging empty prompt calls (15 minutes) 
