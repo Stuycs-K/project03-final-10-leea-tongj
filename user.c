@@ -48,16 +48,15 @@ void display_menu(struct table ** tbl_list, int home, int view, int select){
 
 // prompts user with table list function options
 void table_lst_func(struct table ** tbl_lst){
-    printf("Welcome to the spreadsheet. Begin by typing in the prompt with a menu directive\n");
     display_menu(tbl_lst, 0, 0, 0);
     printf("Prompt: "); 
     char buff[100]; 
-    fgets(buff, sizeof(buff), stdin); 
-    char * args[3]; 
+    fgets(buff, sizeof(buff), stdin);
+    char * args[3];
     parse_args(buff, " ", args);
-    for (int i = 0; i < 3; i++){
-        printf("%s", args[i]);
-    }
+    int len = 0;
+    while (args[len]) len++;
+    args[len-1] = strsep(&args[len-1], "\n");
     if (!strcmp(args[0], "home")){
         display_menu(tbl_lst, 1, 0, 0);
     }
