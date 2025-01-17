@@ -19,7 +19,7 @@ struct table{
 };
 
 struct cell {
-    char input[20];  
+    char input[10];  
     int row; 
     int col;
 };
@@ -51,6 +51,7 @@ void sig();
 void ncurses(struct table * tbl);
 void edit_table(struct table * tbl);
 void draw_grid(struct table * tbl);
+void fill_table(struct table * tbl);
 void ncurses();
 
 //user 

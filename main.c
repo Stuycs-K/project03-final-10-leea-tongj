@@ -15,12 +15,12 @@ int main(){
     int cols = 3; 
     struct table * tbl = create_table(tbl_list, name, rows, cols);
     // display_table(tbl); 
-    printf("Welcome to the spreadsheet. Begin by typing in the prompt with a menu directive\n");
-    table_lst_func(tbl_list);
+    // printf("Welcome to the spreadsheet. Begin by typing in the prompt with a menu directive\n");
+    // table_lst_func(tbl_list);
 
-    // update_cell(tbl, 0, 0, "anas");
-    // update_cell(tbl, 0, 1, "hell");
-    //ncurses(tbl);
+    update_cell(tbl, 0, 0, "anas");
+    update_cell(tbl, 0, 1, "hell");
+    ncurses(tbl);
     // display_table(tbl);
     // write_csv(tbl);
     // char output[10];

@@ -56,6 +56,19 @@ void draw_grid(struct table * tbl) {
     move(1, 2);
 }
 
+void fill_table(struct table *tbl) {
+    for (int i = 0; i < tbl->rows; i++) {
+        for (int j = 0; j < tbl->cols; j++) {
+            move(3*i+1, j*12+2);
+            printw("%s", tbl->arr[i][j]->input);
+        }
+    }
+    refresh();
+    curr_row = 0;
+    curr_col = 0;
+    move(1, 2);
+}
+
 void ncurses(struct table * tbl) {
     sig();
     // initize screen
@@ -64,6 +77,7 @@ void ncurses(struct table * tbl) {
     keypad(stdscr, TRUE); // Enable keypad mode to recognize special keys
     
     draw_grid(tbl);
+    fill_table(tbl);
     
     int ch;
     int count = 0;
