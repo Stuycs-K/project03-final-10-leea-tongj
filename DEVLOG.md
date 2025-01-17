@@ -56,6 +56,12 @@ This document must be updated daily by EACH group member.
 - Added fill_table (10 minutes)
 - Tried and failed to fix the clearing of the rows (10 minutes)
 
+### 2025-01-17 - 
+- Discussed use of while loop in user.c (10 minutes)
+- Tried to debug clearing of rows (10 minutes)
+- Discussed use of backspace key (5 minutes)
+- Tried to debug signals (5 minutes)
+
 ## Janet Tong
 
 ### 2025-01-06 - Skeleton Files + Function Design
