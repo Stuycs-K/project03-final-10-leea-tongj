@@ -51,7 +51,7 @@ void fill_table(struct table *tbl) {
     move(1, 2);
 }
 
-void ncurses(struct table * tbl) {
+void ncurses(struct table ** tbl_list, struct table * tbl) {
     curr_tbl = tbl;
     char *curr_entry = (char *)calloc(10, sizeof(char));
     
@@ -114,6 +114,7 @@ void ncurses(struct table * tbl) {
                 break;
             case 27: //escape key
                 endwin();
+                run(tbl_list);
                 break;
             case 10: //enter key
                 break;

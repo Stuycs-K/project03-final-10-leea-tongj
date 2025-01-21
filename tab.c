@@ -42,8 +42,8 @@ struct table * create_table(struct table ** tbl_list, char* name, int rows, int 
     strcpy(tbl->name, name); 
     tbl->rows = rows; 
     tbl->cols = cols; 
-    for (int i = 0; i < rows; i++){
-        for (int j = 0; j < cols; j++){
+    for (int i = 0; i < 10; i++){
+        for (int j = 0; j < 10; j++){
             struct cell * cll = (struct cell *) malloc(sizeof(struct cell)); 
             cll->row = i; 
             cll->col = j; 
