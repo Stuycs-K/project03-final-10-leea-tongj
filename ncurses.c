@@ -9,8 +9,8 @@ WINDOW *windows[10][10];
 
 static void sighandler(int signo) {
     if (signo == SIGINT) { //copy info
-        sprintf(clipboard, "%-10s", curr_tbl->arr[curr_row][curr_col]->input);
-        // clipboard = curr_tbl->arr[curr_row][curr_col]->input;
+        // sprintf(clipboard, "%-10s", curr_tbl->arr[curr_row][curr_col]->input);
+        clipboard = curr_tbl->arr[curr_row][curr_col]->input;
         // printw("%s", clipboard);
         // refresh();
     }
@@ -70,13 +70,14 @@ void fill_table(struct table *tbl) {
 
 void ncurses(struct table * tbl) {
     curr_tbl = tbl;
-    clipboard = (char *)calloc(10, sizeof(char));
+    char *curr_entry = (char *)calloc(10, sizeof(char));
+    
     sig();
-    // initize screen
-    initscr();
+    initscr(); // initize screen
 
     keypad(stdscr, TRUE); // Enable keypad mode to recognize special keys
-    
+    noecho();
+
     draw_grid(tbl);
     fill_table(tbl);
     
@@ -84,14 +85,13 @@ void ncurses(struct table * tbl) {
     int count = 0;
     while (1) { 
         ch = getch();
-        echo();
         switch (ch) {
             case KEY_UP:
                 if (curr_row > 0) {
                     curr_row--;
                     move(3*curr_row+1, curr_col*12+2);
                     count = 0;
-                    echo();
+                    curr_entry = (char *)calloc(10, sizeof(char)); //reset curr_entry
                 }
                 break;
             case KEY_DOWN:
@@ -99,7 +99,7 @@ void ncurses(struct table * tbl) {
                     curr_row++;
                     move(3*curr_row+1, curr_col*12+2);
                     count = 0;
-                    echo();
+                    curr_entry = (char *)calloc(10, sizeof(char));
                 }
                 break;
             case KEY_LEFT:
@@ -107,7 +107,7 @@ void ncurses(struct table * tbl) {
                     curr_col--;
                     move(3*curr_row+1, curr_col*12+2);
                     count = 0;
-                    echo();
+                    curr_entry = (char *)calloc(10, sizeof(char));
                 }
                 break;
             case KEY_RIGHT:
@@ -115,11 +115,11 @@ void ncurses(struct table * tbl) {
                     curr_col++;
                     move(3*curr_row+1, curr_col*12+2);
                     count = 0;
-                    echo();
+                    curr_entry = (char *)calloc(10, sizeof(char));
                 }
                 break;
             case KEY_BACKSPACE:
-                delch();
+                wdelch(windows[curr_row][curr_col]);
                 if (count > 0) {
                     count--;
                 }
@@ -133,18 +133,24 @@ void ncurses(struct table * tbl) {
                 delch();
                 delch();
                 break;
-            case ('f' & 0x1F): //ctrl+v
-                delch(); delch();
+            case ('f' & 0x1F): //ctrl+f
                 update_cell(curr_tbl, curr_row, curr_col, clipboard);
+                werase(windows[curr_row][curr_col]);
+                box(windows[curr_row][curr_col], 0, 0);
                 mvwprintw(windows[curr_row][curr_col], 1, 1, "%s", clipboard);
                 wrefresh(windows[curr_row][curr_col]);
                 break;
             default:
-                //printw("Character pressed: %c\n", ch);
                 count++;
-                if (count > 9) {
-                    noecho();
+                if (count > 10) {
+                    break;
                 }
+                werase(windows[curr_row][curr_col]);
+                box(windows[curr_row][curr_col], 0, 0);
+                curr_entry[count-1] = ch;
+                mvwprintw(windows[curr_row][curr_col], 1, 1, "%s", curr_entry);
+                wrefresh(windows[curr_row][curr_col]);
+                update_cell(curr_tbl, curr_row, curr_col, curr_entry);
                 break;
         }
     }
