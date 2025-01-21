@@ -5,6 +5,8 @@ struct table * curr_tbl;
 int curr_row;
 int curr_col;
 char *clipboard;
+int uhome = 0; 
+int uview = 0; 
 
 int main(){
     
@@ -14,8 +16,11 @@ int main(){
     int rows = 5; 
     int cols = 3; 
     struct table * tbl = create_table(tbl_list, name, rows, cols);
+    display_menu(tbl_list, 1, 0);
+    display_menu(tbl_list, 0, 1);
+    display_menu(tbl_list, 0, 0);
     // display_table(tbl); 
-    table_lst_func(tbl_list);
+    //table_lst_func(tbl_list);
 
     // update_cell(tbl, 0, 0, "anas");
     // update_cell(tbl, 0, 1, "hell");
@@ -45,4 +50,10 @@ int main(){
 
      // if user chooses this option, they will be prompted for the name of the table and the path to the csv file
     // e.g. read_csv("NYC Population Data", "../lab09-structrw-alee51/nyc_pop.csv");
+}
+
+int run(){
+    struct table ** tbl_list = init_table_list();
+    printf("Welcome to the spreadsheet. Begin by typing in the prompt with a menu directive\n");
+
 }

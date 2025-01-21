@@ -51,12 +51,11 @@ void sig();
 void ncurses(struct table * tbl);
 void edit_table(struct table * tbl);
 void draw_grid(struct table * tbl);
-void ncurses();
 
 //user 
 void strerr(char * str, int size, char * repeat);
 void parse_args(char * line, char * sep, char ** arg_ary);
-void display_menu(struct table ** tbl_list, int home, int view, int select);
+void display_menu(struct table ** tbl_list, int home, int view);
 void table_lst_func(struct table ** tbl_lst);
 
 #endif
