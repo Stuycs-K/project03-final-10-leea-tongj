@@ -56,6 +56,6 @@ void draw_grid(struct table * tbl);
 void parse_args(char * line, char * sep, char ** arg_ary);
 void display_home_menu(struct table ** tbl_list);
 void display_view_menu(struct table ** tbl_list);
-void table_lst_func(struct table ** tbl_lst, int uhome, int uview);
+void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview);
 
 #endif

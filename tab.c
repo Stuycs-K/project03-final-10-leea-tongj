@@ -29,7 +29,7 @@ struct table ** init_table_list(){
 void display_table_list(struct table ** tbl_lst){
     for (int i = 0; tbl_lst[i]; i++){
         printf("[%d] %s\n", i, tbl_lst[i]->name); 
-        printf("Dimensions: %d x %d\n", tbl_lst[i]->rows, tbl_lst[i]->cols);
+        printf("Dimensions: %d x %d\n\n", tbl_lst[i]->rows, tbl_lst[i]->cols);
     }
 }
 

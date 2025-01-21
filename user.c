@@ -37,7 +37,7 @@ void display_view_menu(struct table ** tbl_list){
 }
 
 // prompts user with table list function options
-void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
+void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview){
     printf("Prompt: "); 
     char buff[100]; 
     fgets(buff, sizeof(buff), stdin); //read in user input
@@ -47,8 +47,8 @@ void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
     char * args[3]; 
     parse_args(buff, " ", args); 
     if (!strcmp(args[0], "home")){
-        uhome = 1; 
-        uview = 0; 
+        *uhome = 1; 
+        *uview = 0; 
     }
     else if (!strcmp(args[0], "create")){ 
         printf("Input name of table: "); 
@@ -62,8 +62,8 @@ void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
         char * dim[3]; 
         parse_args(line, "x", dim); 
         create_table(tbl_lst, name, *dim[0] -'0', *dim[1] -'0'); 
-        uhome = 1; 
-        uview = 0; 
+        *uhome = 1; 
+        *uview = 0; 
     } 
     else if (!strcmp(args[0], "import")){
         printf("Provide the path to the csv you'd like to import: "); 
@@ -75,20 +75,20 @@ void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
         fgets(name, sizeof(name), stdin); 
         name[strlen(name) - 1] = '\0';
         read_csv(name, path);
-        uhome = 1; 
-        uview = 0;
+        *uhome = 1; 
+        *uview = 0;
     }
 
     else if (!strcmp(args[0], "view_list")){
-        uview = 1; 
-        uhome = 0; 
+        *uview = 1; 
+        *uhome = 0; 
         display_table_list(tbl_lst); 
     }
 
     else if (!strcmp(args[0], "edit")){
         //ncurses(); 
-        uview = 1; 
-        uhome = 0; 
+        *uview = 1; 
+        *uhome = 0; 
     }
 
     else if (!strcmp(args[0], "resize")){
@@ -100,8 +100,9 @@ void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
         char * dim[3]; 
         parse_args(line, "x", dim); 
         resize(tbl_lst[table_num], *dim[0]-'0', *dim[1]-'0');
-        uview = 1; 
-        uhome = 0; 
+        *uview = 1; 
+        *uhome = 0; 
+        display_table_list(tbl_lst);
     }
 
     else if (!strcmp(args[0], "delete")){
@@ -110,14 +111,16 @@ void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
         fgets(val, sizeof(char), stdin); 
         val[strlen(val) - 1] = '\0';
         delete_table(tbl_lst, *args[1]-'0', strcmp(val, "Y"));
-        uview = 1; 
-        uhome = 0; 
+        *uview = 1; 
+        *uhome = 0; 
+        display_table_list(tbl_lst);
     }
 
     else if (!strcmp(args[0], "export")){
         write_csv(tbl_lst[*args[1]-'0']);
-        uview = 1; 
-        uhome = 0; 
+        *uview = 1; 
+        *uhome = 0;
+        display_table_list(tbl_lst); 
     }
     else{
         printf("Invalid input!"); 

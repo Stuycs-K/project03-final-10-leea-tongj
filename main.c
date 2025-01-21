@@ -19,7 +19,7 @@ void run(){
         if (uview){
             display_view_menu(tbl_list);
         }
-        table_lst_func(tbl_list, uhome, uview);
+        table_lst_func(tbl_list, &uhome, &uview);
     }
 }
 
