@@ -10,7 +10,7 @@ Anastasia Lee, Janet Tong
 We're making a simple spreadsheet with features including basic cell editing, multiple tabs in a sheet, importing/exporting to csv files, and copy-and-paste functionality.
 
 ## Link to video
-https://drive.google.com/file/d/1_dJowOlLhEjhGEam8hScb1QvGi7rttNK/view?usp=sharing 
+https://drive.google.com/file/d/1NKI-EzIgp1Wp5_I-5Tr2d8-f4GNFrlQH/view?usp=sharing 
   
 ## Instructions:
 
