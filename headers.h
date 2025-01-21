@@ -26,13 +26,11 @@ struct cell {
 
 // cell/table edits
 void update_cell(struct table * tbl, int row, int col, char * input);
-char * clear_cell(struct table * tbl, int row, int col);
 void resize(struct table *tbl, int row, int col);
 
 // tab creation + display
 int err();
 struct table * create_table(struct table ** tbl_list, char* name, int rows, int cols);
-void display_table(struct table * tbl);
 void export_file(struct table *tbl);
 struct table ** init_table_list();
 void display_table_list(struct table ** lst);
@@ -52,7 +50,6 @@ void sig();
 
 //ncurses
 void ncurses(struct table * tbl);
-void edit_table(struct table * tbl);
 void draw_grid(struct table * tbl);
 
 //user 
