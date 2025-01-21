@@ -7,7 +7,10 @@ Anastasia Lee, Janet Tong
        
 ### Project Description:
 
-We're making a simple spreadsheet with features including basic cell editing, multiple tabs in a sheet, and copy-and-paste functions.
+We're making a simple spreadsheet with features including basic cell editing, multiple tabs in a sheet, importing/exporting to csv files, and copy-and-paste functionality.
+
+### Link to video
+[LINK!!!]
   
 ### Instructions:
 

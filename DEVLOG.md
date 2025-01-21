@@ -68,6 +68,8 @@ This document must be updated daily by EACH group member.
 - Fixed gaps in boxes (10 minutes)
 - Debugged backspace key (35 minutes)
 - Removed unused functions (5 minutes)
+- Added check for table index (15 minutes)
+- Finished/fixed import (30 minutes)
 
 ## Janet Tong
 
