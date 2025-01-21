@@ -132,8 +132,15 @@ This document must be updated daily by EACH group member.
 - Discussed use of backspace key (5 minutes)
 - Tried debugging table_list_func (15 minutes) 
 
-### 2025-01-18 - While loop
+### 2025-01-20 - While loop
 - Debugged table_list_func (5 minutes) 
 - Separated home and view menu and removed global vars(10 minutes)
 - Added while loop in main (10 minutes) 
 - Debugged extra new line in table_list_func prompts (10 minutes) 
+- Tried adding files folder, unsuccessful (20 minutes)
+- Wrote view_csv_file and stat_csv_file (40 minutes) 
+- Updated the menu to have sub menu for export (20 minutes)
+- Tried debugging extra menu message when given invalid input (40 minutes) 
+- Instead of exiting, had editing window resume while loop (25 minutes)
+- Updated README with detailed instructions (30 minutes) 
+- Debugged invalid statement operators (25 minutes)
