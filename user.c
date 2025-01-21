@@ -1,7 +1,5 @@
 #include "headers.h"
 
-extern int uhome = 0; 
-extern int uview = 0; 
 void parse_args(char * line, char * sep, char ** arg_ary){
     char *curr = line; 
     int i = 0; 
@@ -39,7 +37,7 @@ void display_view_menu(struct table ** tbl_list){
 }
 
 // prompts user with table list function options
-void table_lst_func(struct table ** tbl_lst){
+void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
     printf("Prompt: "); 
     char buff[100]; 
     fgets(buff, sizeof(buff), stdin); //read in user input

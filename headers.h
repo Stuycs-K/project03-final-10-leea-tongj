@@ -53,9 +53,9 @@ void edit_table(struct table * tbl);
 void draw_grid(struct table * tbl);
 
 //user 
-void strerr(char * str, int size, char * repeat);
 void parse_args(char * line, char * sep, char ** arg_ary);
-void display_menu(struct table ** tbl_list, int home, int view);
-void table_lst_func(struct table ** tbl_lst);
+void display_home_menu(struct table ** tbl_list);
+void display_view_menu(struct table ** tbl_list);
+void table_lst_func(struct table ** tbl_lst, int uhome, int uview);
 
 #endif
