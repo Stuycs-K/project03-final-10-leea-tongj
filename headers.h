@@ -41,7 +41,7 @@ int add_table(struct table ** tbl_lst, struct table * tbl);
 void delete_table(struct table ** tbl_lst, int place, int export);
 
 //csv
-struct table * read_csv(struct table ** tbl_lst, char *name, char *PATH);
+void read_csv(struct table ** tbl_lst, char *name, char *PATH);
 void write_csv(struct table *tbl);
 void view_csv_file(char* name);
 void view_csv_stats(char * name);

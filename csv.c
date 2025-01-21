@@ -18,8 +18,21 @@ void read_csv(struct table ** tbl_lst, char *name, char *PATH) {
         rows++;
     }
     // printf("rows: %d columns: %d\n", rows, cols);
-    struct table *tbl = create_table(tbl_list, name, rows, cols);
-    // update entries of table
+    struct table *tbl = create_table(tbl_lst, name, rows, cols);
+    rewind(csv);
+    int row = 0;
+    char t[256];
+    while (fgets(t, 255, csv)) {
+        char *cc = t;
+        int col = 0;
+        while (cc) {
+            char *token = strsep(&cc, ",");
+            token = strsep(&token, "\n");
+            update_cell(tbl, row, col, token);
+            col++;
+        }
+        row++;
+    }
 }
 
 // arguments: pointer to table struct 

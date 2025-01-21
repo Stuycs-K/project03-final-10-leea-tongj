@@ -113,6 +113,7 @@ void ncurses(struct table ** tbl_list, struct table * tbl) {
                 count--;
                 break;
             case 27: //escape key
+                clear();
                 endwin();
                 run(tbl_list);
                 break;
