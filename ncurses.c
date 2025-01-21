@@ -9,7 +9,7 @@ WINDOW *windows[10][10];
 
 static void sighandler(int signo) {
     if (signo == SIGINT) { //copy info
-        sprintf(clipboard, "%-11s", curr_tbl->arr[curr_row][curr_col]->input);
+        sprintf(clipboard, "%-10s", curr_tbl->arr[curr_row][curr_col]->input);
         // clipboard = curr_tbl->arr[curr_row][curr_col]->input;
         // printw("%s", clipboard);
         // refresh();
@@ -70,7 +70,7 @@ void fill_table(struct table *tbl) {
 
 void ncurses(struct table * tbl) {
     curr_tbl = tbl;
-    clipboard = (char *)calloc(11, sizeof(char));
+    clipboard = (char *)calloc(10, sizeof(char));
     sig();
     // initize screen
     initscr();
@@ -136,9 +136,8 @@ void ncurses(struct table * tbl) {
             case ('f' & 0x1F): //ctrl+v
                 delch(); delch();
                 update_cell(curr_tbl, curr_row, curr_col, clipboard);
-                move(3*curr_row+1, 12*curr_col+2);
-                printw("%s", clipboard);
-                refresh();
+                mvwprintw(windows[curr_row][curr_col], 1, 1, "%s", clipboard);
+                wrefresh(windows[curr_row][curr_col]);
                 break;
             default:
                 //printw("Character pressed: %c\n", ch);
