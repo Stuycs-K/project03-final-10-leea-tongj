@@ -1,15 +1,5 @@
 #include "headers.h"
 
-// arguments: str inputted, max size of str, prompt to repeat 
-// returns void
-// notifies user if they exceed the intended size of the str/input unintended info
-void strerr(char * str, int size, char * repeat){
-    if (strlen(str) > size){
-        printf("Maximum size of input is %d\n", size); 
-        printf("%s", repeat);
-    }
-}
-
 void parse_args(char * line, char * sep, char ** arg_ary){
     char *curr = line; 
     int i = 0; 
@@ -26,74 +16,110 @@ void parse_args(char * line, char * sep, char ** arg_ary){
 // int access indicates whether previous command was access table
 // returns void 
 // displays the menu depending on tbl_list size and whether view was called
-void display_menu(struct table ** tbl_list, int home, int view, int select){
-    char menu[400] = "Choose from the menu below: \n"; 
-    strcat(menu, "[home] return to home page \n"); 
+void display_home_menu(struct table ** tbl_list){
+    char menu[400] = "Choose from the menu below: \n";
     strcat(menu, "[create] create table \n"); 
     strcat(menu, "[import] import csv file to table \n"); 
-    //if no tables created, only display create table option
-    if (tbl_list[0]){
-        if (home){
-            strcat(menu, "[view_list] view table list \n"); 
-        }
-        if (view){
-            strcat(menu, "[edit n] edit nth table in new window \n"); 
-            strcat(menu, "[resize n] resize the dimenions of nth table \n"); 
-            strcat(menu, "[delete n] delete nth table \n"); 
-            strcat(menu, "[export n] export nth table to csv file \n");
-        }
+    if (tbl_list[0]){ //if no tables created, only display create table option
+        strcat(menu, "[view_list] view list of tables \n");
     }
     printf("%s", menu);
 }
 
+void display_view_menu(struct table ** tbl_list){
+    char menu[400] = "Choose from the menu below: \n";
+    strcat(menu, "[home] return to home page \n"); 
+    strcat(menu, "[edit n] edit nth table in new window \n"); 
+    strcat(menu, "[resize n] resize the dimenions of nth table \n"); 
+    strcat(menu, "[delete n] delete nth table \n"); 
+    strcat(menu, "[export n] export nth table to csv file \n");
+    printf("%s", menu);
+}
+
 // prompts user with table list function options
-void table_lst_func(struct table ** tbl_lst){
-    display_menu(tbl_lst, 0, 0, 0);
+void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
     printf("Prompt: "); 
     char buff[100]; 
-    fgets(buff, sizeof(buff), stdin);
-    char * args[3];
-    parse_args(buff, " ", args);
-    int len = 0;
-    while (args[len]) len++;
-    args[len-1] = strsep(&args[len-1], "\n");
-    if (!strcmp(args[0], "home")){
-        display_menu(tbl_lst, 1, 0, 0);
-    }
+    fgets(buff, sizeof(buff), stdin); //read in user input
+    buff[strlen(buff) - 1] = '\0';
 
-    if (!strcmp(args[0], "import")){
+    printf("-------------------------\n");
+    char * args[3]; 
+    parse_args(buff, " ", args); 
+    if (!strcmp(args[0], "home")){
+        uhome = 1; 
+        uview = 0; 
+    }
+    else if (!strcmp(args[0], "create")){ 
+        printf("Input name of table: "); 
+        char name[20];
+        fgets(name, sizeof(name), stdin); 
+        name[strlen(name) - 1] = '\0';
+        printf("Input new dimensions (mxn): "); 
+        char line[5]; 
+        fgets(line, sizeof(line), stdin); 
+        line[strlen(line) - 1] = '\0';
+        char * dim[3]; 
+        parse_args(line, "x", dim); 
+        create_table(tbl_lst, name, *dim[0] -'0', *dim[1] -'0'); 
+        uhome = 1; 
+        uview = 0; 
+    } 
+    else if (!strcmp(args[0], "import")){
         printf("Provide the path to the csv you'd like to import: "); 
         char path[256]; 
         fgets(path, sizeof(path), stdin); 
+        path[strlen(path) - 1] = '\0';
         printf("Name the new file: "); 
         char name[256]; 
         fgets(name, sizeof(name), stdin); 
+        name[strlen(name) - 1] = '\0';
         read_csv(name, path);
+        uhome = 1; 
+        uview = 0;
     }
 
-    if (!strcmp(args[0], "view_list")){
-        display_menu(tbl_lst, 0, 1, 0);
+    else if (!strcmp(args[0], "view_list")){
+        uview = 1; 
+        uhome = 0; 
         display_table_list(tbl_lst); 
     }
 
-    if (!strcmp(args[0], "edit")){
+    else if (!strcmp(args[0], "edit")){
         //ncurses(); 
+        uview = 1; 
+        uhome = 0; 
     }
 
-    if (!strcmp(args[0], "resize")){
+    else if (!strcmp(args[0], "resize")){
         int table_num = *args[1] - '0'; 
         printf("Input new dimensions (mxn): "); 
         char line[5]; 
         fgets(line, sizeof(line), stdin); 
+        line[strlen(line) - 1] = '\0';
         char * dim[3]; 
         parse_args(line, "x", dim); 
         resize(tbl_lst[table_num], *dim[0]-'0', *dim[1]-'0');
+        uview = 1; 
+        uhome = 0; 
     }
 
-    if (!strcmp(args[0], "delete")){
+    else if (!strcmp(args[0], "delete")){
         printf("Before deletion, would you like to export this table? (Y/N)"); 
         char val[5];
         fgets(val, sizeof(char), stdin); 
+        val[strlen(val) - 1] = '\0';
         delete_table(tbl_lst, *args[1]-'0', strcmp(val, "Y"));
+        uview = 1; 
+        uhome = 0; 
+    }
+
+    else if (!strcmp(args[0], "export")){
+        write_csv(tbl_lst[*args[1]-'0']);
+        uview = 1; 
+        uhome = 0; 
+    }
+    else{
+        printf("Invalid input!"); 
     }
 }

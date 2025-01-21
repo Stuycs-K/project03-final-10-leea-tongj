@@ -25,15 +25,3 @@ char * clear_cell(struct table * tbl, int row, int col){
     return cleared_input; 
 }
 
-// arguments: pointer to tbl, row, col, new dimensions of table
-// returns void 
-// resizes the table dimensions 
-void resize(struct table *tbl, int row, int col){
-    if (row == 10 || col == 10){
-        printf("Invalid dimensions! Max dimensions: 10 x 10");
-        exit(0);
-    }
-    tbl->rows += row - tbl->rows; 
-    tbl->cols += col - tbl->cols;
-}
-
