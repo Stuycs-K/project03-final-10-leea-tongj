@@ -53,4 +53,4 @@ OVERALL RESTRICTIONS:
 - max 10 characters per cell 
 - max 20 tables in table list 
 
-POSIBBLE BUGS: 
+POSSIBLE BUGS: none that we know of
