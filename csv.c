@@ -1,9 +1,9 @@
 #include "headers.h"
 
-// arguments: name of file, 
+// arguments: name of file, path to csv file
 // returns pointer to table struct
 // converts csv to table
-struct table * read_csv(char *name, char *PATH) {
+void read_csv(struct table ** tbl_lst, char *name, char *PATH) {
     char s[256];
     FILE *csv = fopen(PATH, "r");
     fgets(s, 255, csv);
@@ -18,8 +18,8 @@ struct table * read_csv(char *name, char *PATH) {
         rows++;
     }
     // printf("rows: %d columns: %d\n", rows, cols);
-    struct table ** tbl_list = init_table_list();
-    return create_table(tbl_list, name, rows, cols);
+    struct table *tbl = create_table(tbl_list, name, rows, cols);
+    // update entries of table
 }
 
 // arguments: pointer to table struct 

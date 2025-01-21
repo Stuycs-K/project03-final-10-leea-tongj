@@ -84,7 +84,7 @@ void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview){
         char name[256]; 
         fgets(name, sizeof(name), stdin); 
         name[strlen(name) - 1] = '\0';
-        read_csv(name, path);
+        read_csv(tbl_lst, name, path);
         *uhome = 1; 
         *uview = 0;
     }
