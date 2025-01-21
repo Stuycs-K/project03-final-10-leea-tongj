@@ -95,7 +95,7 @@ void view_csv_stats(char * name){
 }
 
 char* conv(long long n){
-  char*  str = malloc(sizeof(char) * 11); 
+  char*  str = calloc(11, sizeof(char)); 
   if (n & S_IRUSR) strcat(str, "r"); //owner read 
   else strcat(str, "-"); 
   if (n & S_IWUSR) strcat(str, "w"); //owner write 
