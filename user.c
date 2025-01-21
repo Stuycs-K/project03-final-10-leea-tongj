@@ -156,7 +156,7 @@ void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview, int *uedit)
         }
         if (!exit) {
             write_csv(tbl_lst[table_num]);
-            char export_menu[256]; 
+            char *export_menu = (char *)calloc(256, sizeof(char));
             strcat(export_menu, "[view] view the exported csv file\n"); 
             strcat(export_menu, "[stat] stats of exported csv file\n"); 
             strcat(export_menu, "[exit] exit this menu if you would not like to use either menu item\n"); 
