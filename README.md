@@ -56,4 +56,5 @@ After a table is created, a new prompt is available to the user, view list. View
 - max 10 characters per cell 
 - max 20 tables in table list 
 
-POSSIBLE BUGS: none that we know of
+### POSSIBLE BUGS:
+None that we know of!
