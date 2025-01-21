@@ -48,7 +48,7 @@ void display_view_menu(struct table ** tbl_list){
 }
 
 // prompts user with table list function options
-void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview){
+void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview, int *uedit){
     printf("Prompt: "); 
     char buff[100]; 
     fgets(buff, sizeof(buff), stdin); //read in user input
@@ -102,9 +102,10 @@ void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview){
             exit = 1;
         }
         if (!exit) {
-            ncurses(tbl_lst[table_num]); 
             *uview = 1; 
-            *uhome = 0; 
+            *uhome = 0;
+            *uedit = 1;
+            ncurses(tbl_lst, tbl_lst[table_num]); 
         }
     }
 
