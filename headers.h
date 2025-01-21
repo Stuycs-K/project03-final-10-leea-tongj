@@ -43,6 +43,8 @@ void delete_table(struct table ** tbl_lst, int place, int export);
 struct table * read_csv(char *name, char *PATH);
 void write_csv(struct table *tbl);
 void view_csv_file(char* name);
+void view_csv_stats(char * name);
+char* conv(long long n);
 
 //signal
 static void sighandler(int signo);

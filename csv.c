@@ -78,7 +78,7 @@ void view_csv_stats(char * name){
     printf("File Size: %d\n", size); 
     printf("User ID: %d\n", st_uid);
     printf("Group ID: %d\n", st_gid);
-    printf("File Permissions: %s", st_mode);
+    printf("File Permissions: %s\n", st_mode);
 }
 
 char* conv(long long n){

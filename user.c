@@ -115,15 +115,24 @@ void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview){
 
     else if (!strcmp(args[0], "export")){
         write_csv(tbl_lst[*args[1]-'0']);
-        printf("Would you like to view your file? (Y/N)"); 
-        char val[5];
-        fgets(val, sizeof(val), stdin); 
-        val[strlen(val) - 1] = '\0';
-        if (!strcmp(val, "Y")){
-            char name[100]; 
-            strcpy(name, tbl_lst[*args[1]-'0']->name);
-            strcat(name, ".csv");
-            view_csv_file(name);
+        char export_menu[256]; 
+        strcat(export_menu, "[view] view the exported csv file\n"); 
+        strcat(export_menu, "[stat] stats of exported csv file\n"); 
+        strcat(export_menu, "[exit] exit this menu if you would not like to use either menu item\n"); 
+        char name[100]; 
+        strcpy(name, tbl_lst[*args[1]-'0']->name);
+        strcat(name, ".csv"); 
+        char prompt[25]; 
+        while (strcmp(prompt, "exit")){
+            printf("%s", export_menu);
+            fgets(prompt, sizeof(prompt), stdin);
+            prompt[strlen(prompt) -1] = '\0';
+            if (!strcmp(prompt, "view")){
+                view_csv_file(name);
+            }
+            if (!strcmp(prompt, "stat")){
+                view_csv_stats(name);
+            }
         }
         *uview = 1; 
         *uhome = 0;
