@@ -8,6 +8,21 @@ char *clipboard;
 int uhome = 1; 
 int uview = 0; 
 
+void run(){
+    struct table ** tbl_list = init_table_list();
+    printf("Welcome to the spreadsheet. Begin by typing in the prompt with a menu directive.");
+    while(1){
+        printf("\n");
+        if (uhome){
+            display_home_menu(tbl_list);
+        }
+        if (uview){
+            display_view_menu(tbl_list);
+        }
+        table_lst_func(tbl_list, uhome, uview);
+    }
+}
+
 int main(){
     
     struct table ** tbl_list = init_table_list();
@@ -16,6 +31,7 @@ int main(){
     int rows = 5; 
     int cols = 3; 
     struct table * tbl = create_table(tbl_list, name, rows, cols);
+    run();
     // display_table(tbl); 
     //table_lst_func(tbl_list);
 
@@ -49,8 +65,3 @@ int main(){
     // e.g. read_csv("NYC Population Data", "../lab09-structrw-alee51/nyc_pop.csv");
 }
 
-void run(){
-    struct table ** tbl_list = init_table_list();
-    printf("Welcome to the spreadsheet. Begin by typing in the prompt with a menu directive\n");
-    table_lst_func(tbl_list, uhome, uview);
-}

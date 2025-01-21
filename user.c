@@ -41,11 +41,11 @@ void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
     printf("Prompt: "); 
     char buff[100]; 
     fgets(buff, sizeof(buff), stdin); //read in user input
+    buff[strlen(buff) - 1] = '\0';
+
+    printf("-------------------------\n");
     char * args[3]; 
     parse_args(buff, " ", args); 
-    for (int i = 0; i < 3; i++){
-        printf("%s", args[i]);
-    }
     if (!strcmp(args[0], "home")){
         uhome = 1; 
         uview = 0; 
@@ -54,9 +54,11 @@ void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
         printf("Input name of table: "); 
         char name[20];
         fgets(name, sizeof(name), stdin); 
+        name[strlen(name) - 1] = '\0';
         printf("Input new dimensions (mxn): "); 
         char line[5]; 
         fgets(line, sizeof(line), stdin); 
+        line[strlen(line) - 1] = '\0';
         char * dim[3]; 
         parse_args(line, "x", dim); 
         create_table(tbl_lst, name, *dim[0] -'0', *dim[1] -'0'); 
@@ -67,9 +69,11 @@ void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
         printf("Provide the path to the csv you'd like to import: "); 
         char path[256]; 
         fgets(path, sizeof(path), stdin); 
+        path[strlen(path) - 1] = '\0';
         printf("Name the new file: "); 
         char name[256]; 
         fgets(name, sizeof(name), stdin); 
+        name[strlen(name) - 1] = '\0';
         read_csv(name, path);
         uhome = 1; 
         uview = 0;
@@ -92,6 +96,7 @@ void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
         printf("Input new dimensions (mxn): "); 
         char line[5]; 
         fgets(line, sizeof(line), stdin); 
+        line[strlen(line) - 1] = '\0';
         char * dim[3]; 
         parse_args(line, "x", dim); 
         resize(tbl_lst[table_num], *dim[0]-'0', *dim[1]-'0');
@@ -103,6 +108,7 @@ void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
         printf("Before deletion, would you like to export this table? (Y/N)"); 
         char val[5];
         fgets(val, sizeof(char), stdin); 
+        val[strlen(val) - 1] = '\0';
         delete_table(tbl_lst, *args[1]-'0', strcmp(val, "Y"));
         uview = 1; 
         uhome = 0; 
@@ -112,5 +118,8 @@ void table_lst_func(struct table ** tbl_lst, int uhome, int uview){
         write_csv(tbl_lst[*args[1]-'0']);
         uview = 1; 
         uhome = 0; 
+    }
+    else{
+        printf("Invalid input!"); 
     }
 }
