@@ -70,6 +70,8 @@ This document must be updated daily by EACH group member.
 - Removed unused functions (5 minutes)
 - Added check for table index (15 minutes)
 - Finished/fixed import (30 minutes)
+- Fixed export_menu and permission string (10 minutes)
+- Updated information in README and added some formatting (15 minutes)
 
 ## Janet Tong
 
