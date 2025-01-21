@@ -85,13 +85,14 @@ void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview){
     }
 
     else if (!strcmp(args[0], "edit")){
-        //ncurses(); 
+        int table_num = *args[1] - '0';
+        ncurses(tbl_lst[table_num]); 
         *uview = 1; 
         *uhome = 0; 
     }
 
     else if (!strcmp(args[0], "resize")){
-        int table_num = *args[1] - '0'; 
+        int table_num = *args[1] - '0';
         printf("Input new dimensions (mxn): "); 
         char line[5]; 
         fgets(line, sizeof(line), stdin); 

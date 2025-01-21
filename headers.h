@@ -10,6 +10,7 @@
 #include <sys/stat.h>
 #include <errno.h>
 #include <signal.h>
+#include <wait.h>
 
 struct table{
     char name[256]; 
