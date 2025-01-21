@@ -29,7 +29,7 @@ After a table is created, a new prompt is available to the user, view list. View
 VIEW LIST MENU: Users can choose a table and indicate whether they want to edit, resize, delete, or export the table. 
 - edit: sends user to new window where they can edit the table in a spreadsheet-like display
   - users can use the arrow keys to move their cursor to adjacent cells (if possible)
-  - users can type into the cell to input information — 10 characters per cell
+  - users can type into the cell to input information — max 10 characters per cell
   - the esc key exits the editing window
   - ctrl+c copies information from the cell the user is currently on
   - ctrl+f pastes the copied information to the cell the user is currently on
@@ -42,3 +42,10 @@ VIEW LIST MENU: Users can choose a table and indicate whether they want to edit,
   - stat: displays file stats (size, user id, group id, permissions)
 
 Users can use ctrl+\ outside of the editing mode to exit the entire spreadsheet program. 
+
+OVERALL RESTRICTIONS: 
+- max table dimensions are 10 x 10 
+- max 10 characters per cell 
+- max 20 tables in table list 
+
+POSIBBLE BUGS: 
