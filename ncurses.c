@@ -102,10 +102,15 @@ void ncurses(struct table * tbl) {
                 }
                 break;
             case KEY_BACKSPACE:
-                wdelch(windows[curr_row][curr_col]);
-                if (count > 0) {
-                    count--;
+                if (count <= 0) {
+                    break;
                 }
+                mvwprintw(windows[curr_row][curr_col], 1, count, " ");
+                wmove(windows[curr_row][curr_col], 1, count);
+                wrefresh(windows[curr_row][curr_col]);
+                curr_entry[count-1] = '\0';
+                update_cell(curr_tbl, curr_row, curr_col, curr_entry);
+                count--;
                 break;
             case 27: //escape key
                 endwin();
@@ -120,10 +125,10 @@ void ncurses(struct table * tbl) {
                 wrefresh(windows[curr_row][curr_col]);
                 break;
             default:
-                count++;
-                if (count > 10) {
+                if (count > 9) {
                     break;
                 }
+                count++;
                 werase(windows[curr_row][curr_col]);
                 box(windows[curr_row][curr_col], 0, 0);
                 curr_entry[count-1] = ch;
