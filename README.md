@@ -29,7 +29,7 @@ Users will begin with a menu prompt. At the beginning of the program, the only a
 
 After a table is created, a new prompt is available to the user, view list. View list displays all the user's tables with their names and dimensions.
 
-**VIEW LIST MENU:** Users can choose a table (identified by its index in the list) and indicate whether they want to access, resize, delete, or export that table. 
+<ins>VIEW LIST MENU:</ins> Users can choose a table (identified by its index in the list) and indicate whether they want to access, resize, delete, or export that table. 
 - access: sends user to new window where they can view/edit the table in a spreadsheet-like display
   - users can use the arrow keys to move their cursor to adjacent cells (if possible)
   - users can type into the cell to input information — max 10 characters per cell
@@ -46,12 +46,12 @@ After a table is created, a new prompt is available to the user, view list. View
   - view: allows the user to view the csv file 
   - stat: displays file stats (size, user id, group id, permissions)
 
-**Use ctrl+\ to exit the program! This should always work, whether you're in the viewing/editing window or not.**
+<ins>Use ctrl+\ to exit the program! This should always work, whether you're in the viewing/editing window or not.</ins>
 
 ### Libraries
 - In addition to standard libraries, we used ncurses. It does not need to be installed.
 
-OVERALL RESTRICTIONS: 
+### OVERALL RESTRICTIONS: 
 - max table dimensions are 10 x 10, min table dimensions are 1 x 1
 - max 10 characters per cell 
 - max 20 tables in table list 
