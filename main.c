@@ -20,6 +20,7 @@ void run(struct table ** tbl_list){
     }
     while(1){
         if (uhome){
+            printf("\n");
             display_home_menu(tbl_list);
         }
         if (uview){
