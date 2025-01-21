@@ -63,7 +63,11 @@ This document must be updated daily by EACH group member.
 - Tried to debug signals (5 minutes)
 
 ### 2025-01-20 - Fixing and putting everything together
-- 
+- Fixed copy paste/signals functionality (30 minutes)
+- Added updating functionality (15 minutes)
+- Fixed gaps in boxes (10 minutes)
+- Debugged backspace key (35 minutes)
+- Removed unused functions (5 minutes)
 
 ## Janet Tong
 
