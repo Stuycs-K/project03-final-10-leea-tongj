@@ -117,3 +117,14 @@ This document must be updated daily by EACH group member.
 - Wrote resize as opposed to add rows/columns (5 minutes)
 - Edited parse_args (5 minutes)
 - Debugging empty prompt calls (15 minutes) 
+
+### 2025-01-17 - Menu Debugging + Discussion of ncurses window 
+- Discussed use of while loop in user.c (10 minutes)
+- Discussed use of backspace key (5 minutes)
+- Tried debugging table_list_func (15 minutes) 
+
+### 2025-01-18 - While loop
+- Debugged table_list_func (5 minutes) 
+- Separated home and view menu and removed global vars(10 minutes)
+- Added while loop in main (10 minutes) 
+- Debugged extra new line in table_list_func prompts (10 minutes) 
