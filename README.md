@@ -30,9 +30,9 @@ VIEW LIST MENU: Users can choose a table and indicate whether they want to edit,
 - edit: sends user to new window where they can edit the table in a spreadsheet-like display
   - users can use the arrow keys to move their cursor to adjacent cells (if possible)
   - users can type into the cell to input information 
+  - the esc key exits the editing window
   - ctrl+c copies information from the cell the user is currently on
   - ctrl+f pastes the copied information to the cell the user is currently on
-  - ctrl+\ exits the editing mode  
 - resize: prompts user for new dimensions to resize table to 
   - max dimensions are 10 x 10
   - if user inputs dimensions smaller than the current dimensions, the table will truncate cell information from outer columns and rows 
@@ -41,4 +41,4 @@ VIEW LIST MENU: Users can choose a table and indicate whether they want to edit,
   - view: allows the user to view the csv file 
   - stat: displays file stats (size, user id, group id, permissions)
 
-Users can use ctrl+c outside of the editing mode to exit the entire spreadsheet program. 
+Users can use ctrl+\ outside of the editing mode to exit the entire spreadsheet program. 
