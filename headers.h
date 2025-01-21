@@ -49,7 +49,6 @@ void sig();
 
 //ncurses
 void ncurses(struct table * tbl);
-void edit_table(struct table * tbl);
 void draw_grid(struct table * tbl);
 void fill_table(struct table * tbl);
 
