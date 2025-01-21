@@ -7,11 +7,11 @@ extern int curr_col;
 extern char *clipboard;
 
 static void sighandler(int signo) {
-    if (signo == SIGINT) { //copy info 
-        clipboard = curr_tbl->arr[curr_row][curr_col]->input;
-    }
-    if (signo == SIGSTOP) { //paste info
-        update_cell(curr_tbl, curr_row, curr_col, clipboard);
+    if (signo == SIGINT) { //copy info
+        sprintf(clipboard, "%-11s", curr_tbl->arr[curr_row][curr_col]->input);
+        // clipboard = curr_tbl->arr[curr_row][curr_col]->input;
+        // printw("%s", clipboard);
+        // refresh();
     }
     if (signo == SIGQUIT) { //exit
         endwin();
@@ -21,7 +21,6 @@ static void sighandler(int signo) {
 
 void sig() {
     signal(SIGINT, sighandler);
-    signal(SIGSTOP, sighandler);
     signal(SIGQUIT, sighandler);
 }
 
@@ -70,6 +69,8 @@ void fill_table(struct table *tbl) {
 }
 
 void ncurses(struct table * tbl) {
+    curr_tbl = tbl;
+    clipboard = (char *)calloc(11, sizeof(char));
     sig();
     // initize screen
     initscr();
@@ -131,6 +132,13 @@ void ncurses(struct table * tbl) {
                 move(1, 2);
                 delch();
                 delch();
+                break;
+            case ('f' & 0x1F): //ctrl+v
+                delch(); delch();
+                update_cell(curr_tbl, curr_row, curr_col, clipboard);
+                move(3*curr_row+1, 12*curr_col+2);
+                printw("%s", clipboard);
+                refresh();
                 break;
             default:
                 //printw("Character pressed: %c\n", ch);
