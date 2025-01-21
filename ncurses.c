@@ -5,6 +5,7 @@ extern struct table * curr_tbl;
 extern int curr_row;
 extern int curr_col;
 extern char *clipboard;
+WINDOW *windows[10][10];
 
 static void sighandler(int signo) {
     if (signo == SIGINT) { //copy info
@@ -42,7 +43,6 @@ void edit_table(struct table * tbl){
 
 void draw_grid(struct table * tbl) {
     refresh();
-    WINDOW *windows[10][10];
     for (int i = 0; i < tbl->rows; i++) {
         for (int j = 0; j < tbl->cols; j++) {
             windows[i][j] = newwin(3, 12, 3*i, 12*j+1);
@@ -58,8 +58,8 @@ void draw_grid(struct table * tbl) {
 void fill_table(struct table *tbl) {
     for (int i = 0; i < tbl->rows; i++) {
         for (int j = 0; j < tbl->cols; j++) {
-            move(3*i+1, j*12+2);
-            printw("%s", tbl->arr[i][j]->input);
+            mvwprintw(windows[i][j], 1, 1, "%s", tbl->arr[i][j]->input);
+            wrefresh(windows[i][j]);
         }
     }
     refresh();
