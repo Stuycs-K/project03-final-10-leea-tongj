@@ -72,7 +72,7 @@ int table_lst_func(struct table ** tbl_lst, int *uhome, int *uview, int *uedit){
         line[strlen(line) - 1] = '\0';
         char * dim[3]; 
         parse_args(line, "x", dim); 
-        if (*dim[0]-'0' <= 0 || *dim[1] - '0'){
+        if (*dim[0]-'0' <= 0 || *dim[1]-'0' <= 0){
             return -1; 
         }
         create_table(tbl_lst, name, *dim[0] -'0', *dim[1] -'0'); 
@@ -124,7 +124,7 @@ int table_lst_func(struct table ** tbl_lst, int *uhome, int *uview, int *uedit){
         fgets(line, sizeof(line), stdin); 
         line[strlen(line) - 1] = '\0';
         parse_args(line, "x", dim); 
-        if (*dim[0]-'0' <= 0 || *dim[1] - '0'){
+        if (*dim[0]-'0' <= 0 || *dim[1]-'0' <= 0){
             return -1; 
         }
         resize(tbl_lst[table_num], *dim[0]-'0', *dim[1]-'0');
