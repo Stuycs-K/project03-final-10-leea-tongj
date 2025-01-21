@@ -19,6 +19,7 @@ void run(struct table ** tbl_list){
         printf("Welcome to the spreadsheet. Begin by typing in the prompt with a menu directive.");
     }
     while(1){
+        printf("\n");
         if (uhome){
             display_home_menu(tbl_list);
         }
@@ -26,14 +27,18 @@ void run(struct table ** tbl_list){
             display_view_menu(tbl_list);
         }
         int val = table_lst_func(tbl_list, &uhome, &uview, &uedit);
-        if (val == -2){
-            printf("Invalid Table Number!"); 
+        if (val != 1){
+            if (val == -2){
+                printf("Invalid Table Number!"); 
+            }
+            if (val == -1){
+                printf("Invalid Dimensions!");
+            }
+            if (val == 0){
+                printf("Invalid Input!");
+            }
+            fflush(stdin);
         }
-        if (val == -1){
-            printf("Invalid Dimensions!");
-        }
-        if (val == 0){
-            printf("Invalid Input!");
-        }
+        
     }
 }
