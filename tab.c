@@ -47,28 +47,12 @@ struct table * create_table(struct table ** tbl_list, char* name, int rows, int 
             cll->row = i; 
             cll->col = j; 
 
-            strcpy(cll->input, "0"); 
+            strcpy(cll->input, (char *)calloc(10, sizeof(char))); 
             tbl->arr[i][j] = cll;
         }
     }
     int place = add_table(tbl_list, tbl); 
     return tbl; 
-}
-
-// argument: pointer to table to display
-// returns void 
-// displays contents of table in spreadsheet format 
-void display_table(struct table * tbl){
-    curr_row = 0;
-    curr_col = 0;
-    for (int i = 0; i < tbl->rows; i++){
-        for (int j = 0; j < tbl->cols; j++){
-            printf("%10.10s %s", tbl->arr[i][j]->input, " "); 
-            if (j == tbl->cols -1){
-                printf("\n"); 
-            }
-        }
-    }
 }
 
 // arguments: name of table to access
