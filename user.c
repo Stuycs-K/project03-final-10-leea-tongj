@@ -27,12 +27,13 @@ void display_home_menu(struct table ** tbl_list){
 }
 
 void display_view_menu(struct table ** tbl_list){
-    char menu[400] = "Choose from the menu below: \n";
+    char menu[400] = "\nChoose from the menu below: \n";
     strcat(menu, "[home] return to home page \n"); 
     strcat(menu, "[edit n] edit nth table in new window \n"); 
     strcat(menu, "[resize n] resize the dimenions of nth table \n"); 
     strcat(menu, "[delete n] delete nth table \n"); 
     strcat(menu, "[export n] export nth table to csv file \n");
+    display_table_list(tbl_list);
     printf("%s", menu);
 }
 
@@ -42,10 +43,9 @@ void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview){
     char buff[100]; 
     fgets(buff, sizeof(buff), stdin); //read in user input
     buff[strlen(buff) - 1] = '\0';
-
-    printf("-------------------------\n");
     char * args[3]; 
     parse_args(buff, " ", args); 
+    printf("\n");
     if (!strcmp(args[0], "home")){
         *uhome = 1; 
         *uview = 0; 
@@ -81,8 +81,7 @@ void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview){
 
     else if (!strcmp(args[0], "view_list")){
         *uview = 1; 
-        *uhome = 0; 
-        display_table_list(tbl_lst); 
+        *uhome = 0;  
     }
 
     else if (!strcmp(args[0], "edit")){
@@ -102,25 +101,32 @@ void table_lst_func(struct table ** tbl_lst, int *uhome, int *uview){
         resize(tbl_lst[table_num], *dim[0]-'0', *dim[1]-'0');
         *uview = 1; 
         *uhome = 0; 
-        display_table_list(tbl_lst);
     }
 
     else if (!strcmp(args[0], "delete")){
         printf("Before deletion, would you like to export this table? (Y/N)"); 
         char val[5];
-        fgets(val, sizeof(char), stdin); 
+        fgets(val, sizeof(val), stdin); 
         val[strlen(val) - 1] = '\0';
-        delete_table(tbl_lst, *args[1]-'0', strcmp(val, "Y"));
+        delete_table(tbl_lst, *args[1]-'0', !strcmp(val, "Y"));
         *uview = 1; 
         *uhome = 0; 
-        display_table_list(tbl_lst);
     }
 
     else if (!strcmp(args[0], "export")){
         write_csv(tbl_lst[*args[1]-'0']);
+        printf("Would you like to view your file? (Y/N)"); 
+        char val[5];
+        fgets(val, sizeof(val), stdin); 
+        val[strlen(val) - 1] = '\0';
+        if (!strcmp(val, "Y")){
+            char name[100]; 
+            strcpy(name, tbl_lst[*args[1]-'0']->name);
+            strcat(name, ".csv");
+            view_csv_file(name);
+        }
         *uview = 1; 
         *uhome = 0;
-        display_table_list(tbl_lst); 
     }
     else{
         printf("Invalid input!"); 

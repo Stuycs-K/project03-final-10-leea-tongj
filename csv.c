@@ -46,3 +46,25 @@ void write_csv(struct table *tbl) {
     }
     close(w_file);
 }
+
+void view_csv_file(char* name){
+    char cat[256] = "cat "; 
+    strcat(cat, name); 
+    char * arg_ary[3]; 
+    parse_args(cat, " ", arg_ary); 
+    pid_t p1 = fork();
+    if (p1 < 0){
+        perror("forkfail"); 
+        exit(1); 
+    } else if (p1 == 0){
+        execvp(arg_ary[0], arg_ary); 
+    }
+    else{
+        int status; 
+        wait(&status); 
+    }
+}
+
+void view_csv_stats(char * name){
+    
+}
