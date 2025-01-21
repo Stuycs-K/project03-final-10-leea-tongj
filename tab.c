@@ -42,8 +42,8 @@ struct table * create_table(struct table ** tbl_list, char* name, int rows, int 
     strcpy(tbl->name, name); 
     tbl->rows = rows; 
     tbl->cols = cols; 
-    for (int i = 0; i < 10; i++){
-        for (int j = 0; j < 10; j++){
+    for (int i = 0; i < rows; i++){
+        for (int j = 0; j < cols; j++){
             struct cell * cll = (struct cell *) malloc(sizeof(struct cell)); 
             cll->row = i; 
             cll->col = j; 
@@ -96,6 +96,28 @@ void resize(struct table *tbl, int row, int col){
         printf("Invalid dimensions! Max dimensions: 10 x 10");
         exit(0);
     }
+    int prevr = tbl->rows; 
+    int prevc = tbl->cols;
     tbl->rows += row - tbl->rows; 
+    for (int i = prevr; i < row; i++){
+        for (int j = 0; j < prevc; j++){
+            struct cell * cll = (struct cell *) malloc(sizeof(struct cell)); 
+            cll->row = i; 
+            cll->col = j; 
+
+            strcpy(cll->input, (char *)calloc(10, sizeof(char))); 
+            tbl->arr[i][j] = cll;
+        }
+    }
     tbl->cols += col - tbl->cols;
+    for (int i = 0; i < row; i++){
+        for (int j = prevc; j < col; j++){
+            struct cell * cll = (struct cell *) malloc(sizeof(struct cell)); 
+            cll->row = i; 
+            cll->col = j; 
+
+            strcpy(cll->input, (char *)calloc(10, sizeof(char))); 
+            tbl->arr[i][j] = cll;
+        }
+    }
 }
