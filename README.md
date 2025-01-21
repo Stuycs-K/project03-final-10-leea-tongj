@@ -19,13 +19,26 @@ How does the user install/compile/run the program?
 
 How does the user interact with this program?
 
-- Users can create new tables by adding a tab to the spreadsheet
-- Users can view a list of all their tables, with the title and dimensions
-- Users can then choose a table and indicate whether they want to access or delete that table
-- Within a table, users can add rows/columns or select a cell and:
-  - Insert/edit info (type value)
-  - Copy info (`ctrl-C`)
-  - Paste info (`ctrl-Z`)
-- Users can convert a csv file to a table by providing the path to the csv file
-- Users can use the arrow keys to move their cursor to adjacent cells (if possible)
-- Users can use `ctrl-\` to exit the program
+HOME MENU: 
+Users will begin with a menu prompt. At the beginning of the program, the only available prompts are create and import. 
+- create: prompts the user for the name and dimensions (max dimensions 10 x 10) of the table, creates the table, and adds it to your table list. 
+- import: prompts the user for the path to the csv file and name, converts the csv file to a table, and adds it to your table list. 
+
+After a table is created, a new prompt is available to the user, view list. View list displays all the user's tables with their names and dimensions.
+
+VIEW LIST MENU: Users can choose a table and indicate whether they want to edit, resize, delete, or export the table. 
+- edit: sends user to new window where they can edit the table in a spreadsheet-like display
+  - users can use the arrow keys to move their cursor to adjacent cells (if possible)
+  - users can type into the cell to input information 
+  - ctrl+c copies information from the cell the user is currently on
+  - ctrl+f pastes the copied information to the cell the user is currently on
+  - ctrl+\ exits the editing mode  
+- resize: prompts user for new dimensions to resize table to 
+  - max dimensions are 10 x 10
+  - if user inputs dimensions smaller than the current dimensions, the table will truncate cell information from outer columns and rows 
+- delete: deletes specified table, asks user if they would like to export the table before deleting it 
+- export: exports table contents to a csv file
+  - view: allows the user to view the csv file 
+  - stat: displays file stats (size, user id, group id, permissions)
+
+Users can use ctrl+c outside of the editing mode to exit the entire spreadsheet program. 
