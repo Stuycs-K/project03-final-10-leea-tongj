@@ -29,13 +29,13 @@ void run(struct table ** tbl_list){
         int val = table_lst_func(tbl_list, &uhome, &uview, &uedit);
         if (val != 1){
             if (val == -2){
-                printf("Invalid Table Number!"); 
+                printf("Invalid Table Number!\n"); 
             }
             if (val == -1){
-                printf("Invalid Dimensions!");
+                printf("Invalid Dimensions!\n");
             }
             if (val == 0){
-                printf("Invalid Input!");
+                printf("Invalid Input!\n");
             }
             fflush(stdin);
         }
