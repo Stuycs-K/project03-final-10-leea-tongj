@@ -22,7 +22,7 @@ We're making a simple spreadsheet with features including basic cell editing, mu
 
 ### How does the user interact with this program?
 
-**HOME MENU:** 
+<ins>HOME MENU:</ins>
 Users will begin with a menu prompt. At the beginning of the program, the only available prompts are create and import. 
 - create: prompts the user for the name and dimensions (max dimensions 10 x 10, min dimensions 1 x 1) of the table, creates the table, and adds it to your table list. 
 - import: prompts the user for the path to the csv file and name, converts the csv file to a table, and adds it to your table list - note that the imported csv file must have max 10 characters per entry and have max dimensions 10 x 10
@@ -47,6 +47,9 @@ After a table is created, a new prompt is available to the user, view list. View
   - stat: displays file stats (size, user id, group id, permissions)
 
 **Use ctrl+\ to exit the program! This should always work, whether you're in the viewing/editing window or not.**
+
+### Libraries
+- In addition to standard libraries, we used ncurses. It does not need to be installed.
 
 OVERALL RESTRICTIONS: 
 - max table dimensions are 10 x 10, min table dimensions are 1 x 1
